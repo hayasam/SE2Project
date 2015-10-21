@@ -1,0 +1,6 @@
+G1) Allow passengers to request and use a taxi
+G2) Fair management of taxi distribution
+
+D1) There are always taxis
+D2) City is divided into taxi zones
+D3) Each taxi has a GPS system that can be accessed by the system
