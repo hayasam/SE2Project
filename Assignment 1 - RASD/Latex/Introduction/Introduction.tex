@@ -1,8 +1,50 @@
 \chapter{Introduction}
 
 \section{Purpose}
+This is the Requirements Analysis and Specification Document to be used in the design of the software system called \textit{myTaxiService}. In this document we describe the specifications and constraints that the software we are to implement must have.
+The intended audience of this paper is:
+\begin{itemize}
+\item The project manager
+\item The client which in this case is the Government of the city
+\item The designers and developers of the application
+\item The testing team
+\item The end user
+\end{itemize}
+This document has contractual value.
 \section{Scope}
-\section{Definitions}
-We present here the main glossary of the application domain:
+Here we summarize the main scope of the application.\\
+The client is the \textit{government of a large city}.\\
+This city already offers a taxi service to its citizens, but the government wants to improve it using a modern and efficient information system.\\
+So we received the request to design and implement this application, called \textit{myTaxiService} which has basically two great objectives:
+\begin{itemize}
+\item Simplify the usage of the taxi service
+\item Guarantee an efficient management of the taxi queues
+\end{itemize}
+\subsection{Users and interfaces of the application}
+The system is designed to interact with two kind of users:
+\begin{itemize}
+\item The clients (Passengers) of the Taxi service
+\item The taxi drivers
+\end{itemize}
+For each category of users we must provide an appropriate interface and the client requests for the interfaces are:
+\begin{itemize}
+\item A web application or a mobile application for the clients (Passengers)
+\item A mobile application for the Taxi Drivers
+\end{itemize}
+Moreover, it is required to implement a software interface for the developers of the system that manages to simplify the extension of the software with additional taxi services.
+\subsection{High level behavior}
+Here we report the exact description of the problem the government of the city supplied to us: \\ \\ 
+Passengers can request a taxi either through a web application or a mobile application.
+The system answers to the request by informing the passenger about the code of the incoming taxi and the waiting time.\\ \\
+Taxi drivers use a mobile application to inform the system about their availability and to confirm that they are going to take care of a certain request. \\ \\  
+The system guarantees a fair management of taxi queues. \\
+In particular the city is divided in taxi zones (approximately 2 km2 each). Each taxi zone is associated to a taxi queue.\\
+The system automatically computes the distribution of taxi in the various taxi zones based on the GPS information it receives from each taxi. When a taxi is available, its identifier is stored in the taxi queue in the corresponding taxi zone. When a request arrives from a certain taxi zone, the system forwards it to the first taxi queuing (in the taxi queue) in that taxi zone. If the taxi confirms (the request), then the system will send a confirmation to the passenger. If not, then the system will forward the request to the second in the taxi queue and will, at the same time, move the first taxi in the last position in the taxi queue.\\ \\
+A passenger can reserve a taxi by specifying the origin and the destination of the ride. The reservation has to occur at least two hours before the ride. In this case, the system confirms the reservation to the passenger and allocates a taxi to the reservation 10 minutes before the meeting time with the passenger. \\ \\
+Beside the specific user interfaces for passengers and taxi drivers, the system offers also programmatic interfaces to enable the development of additional taxi service (e.g. taxi sharing) on top of the basic one. 
+
+\input{Introduction/Sections/Definitions.tex}
+
 \section{References}
+
 \section{Overview}
