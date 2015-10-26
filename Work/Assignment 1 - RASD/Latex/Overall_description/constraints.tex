@@ -1,1 +1,17 @@
 \section{Constraints}
+\subsection{Regulatory Polices}
+The software behavior must respect all the prescription of the local law about:
+\begin{itemize}
+\item Security and Integrity of the users data (both Passengers and Taxi Drivers)
+\end{itemize}
+\subsection{Hardware limitations}
+The system must be interfaced through two kind of mobile applications (one for the Passenger and one for the Taxi Driver) and a web application.
+\subsubsection{Mobile applications}
+Both the applications must run both on Android and iOS. They have to request the minimum amount of authorizations to the smart phone Operating System and of course they must not damage/modify unrelated data stored in the device.
+\subsubsection{Web application}
+The web application must be supported by all the most famous web browsers: in particular Google Chrome, Safari, Mozilla Firefox and Internet Explorer.
+\subsection{Parallel Operation}
+The system must be able to deal with multiple contemporary requests coming from different Passengers. The statistics on the daily usage of the taxi service of the city show that there will be at least 5/6 requests per second during the more congested hours of the day.\\
+The system must provide the right grade of parallelism.
+\subsection{Criticality}
+The system does not present any critical application. The Passengers are supposed not to use the taxi service for life-critical purposes.
