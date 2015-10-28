@@ -1,11 +1,23 @@
 \chapter{Specific Requirements}
-
+\input{Specific_Requirements/Scenarios/scenarios.tex}
+\section{Derived behavior of the actors}
+From the domain analysis, the assumptions and the basic requirements for the application we can derive a model of behavior of the agents (Passengers and Taxi Drivers) when they use the future application
+\subsection{Passenger behavior}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{Images/statechart_passenger}
+\end{figure}
+\subsection{Taxi Driver behavior}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{Images/statechart_taxiDriver}
+\end{figure}
 \section{External interface requirements}
 \input{Specific_Requirements/user_interfaces.tex}
 \subsection{Software interfaces}
 \subsection{Communication interfaces}
 The only communication protocol used is HTTP.
-\input{Specific_Requirements/Scenarios/scenarios.tex}
+
 \section{Functional requirements}
 \subsection{User class 1}
 \subsubsection{Functional requirement 1.1}
