@@ -1,7 +1,7 @@
 \subsection{Registration to the service}
 Bob has discovered the new service offered by the city called \textit{myTaxiService} and he wants to discover how it works. He goes to the web application site and starts the registration phase.\\
 He insert a the username and the password he wants and submit the request of registration. The system replies saying that the username selected is already used and that Bob has to insert another username. Bob insert another username and this time the procedure succeed. Bob is now correctly registered to \textit{myTaxiService}.
-
+\subsubsection{Use case}
 \begin{table}[H]
 \centering
 \begin{tabularx}{\textwidth}{|l|X|} \hline
@@ -12,12 +12,12 @@ Enter condition & None \\ \hline
 Event flow & \begin{enumerate}
 				\item The passenger goes to the web application page
 				\item The passenger clicks on the sign up button
-				\item The passenger fills the form with username and password desired
+				\item \label{fillForm1} The passenger fills the form with username and password desired
 				\item The passenger clicks the submit button
 				\item If the username is already present in the system or there are missing data
 				\begin{enumerate}
 					\item Notify the Passenger of the error
-					\item Go back to Event flow 3
+					\item Go back to Event flow \ref{fillForm1}
 				\end{enumerate}	
 				\item The system retrieves the data and stores them
 				\item The system notifies that the registration has been correctly done
@@ -31,3 +31,18 @@ Exit condition & The passenger is correctly registered to the service \\ \hline
 \end{tabularx}
 \caption{Use case: Register}
 \end{table}
+
+\subsubsection{Functional requirements}
+\begin{enumerate}
+\item The system must not allow an already signed up user to register himself (same username) again to the system
+\item The username provided in the registration phase must not be empty
+\item The password provided in the registration phase must not be empty
+\item The system must notify the user in case: 
+	\begin{enumerate}
+	\item The username provided is empty
+	\item The password provided is empty
+	\item The username provided already exists in the system
+	\end{enumerate}
+	and must abort the registration procedure
+\item The system must provide for the Passenger a way to abort the registration procedure
+\end{enumerate}

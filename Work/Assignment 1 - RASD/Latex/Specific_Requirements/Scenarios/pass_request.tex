@@ -8,6 +8,46 @@ After a few seconds the system responds indicating that the taxi with identifica
 \includegraphics[scale=0.6]{Images/sequence_taxi_request_accepted}
 \end{figure}
 
+\subsubsection{Use case}
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|l|X|} \hline
+Use case & \textbf{Request a taxi} \\ \hline 
+Actors & Passenger, Taxi Driver \\ \hline
+Goals & A passenger must be able to register to the service \\ \hline
+Enter condition & \begin{itemize}
+					\item The Passenger must already been registered to the service
+					\item The Taxi driver must be registered to the service
+					\item The Passenger must already have opened the application (mobile or web) and logged in
+					\item The Taxi driver must be available to accept requests
+					\end{itemize} \\ \hline
+Event flow & \begin{enumerate}
+				\item The Passenger goes to the section for requesting an immediate taxi
+				\item \label{fillForm} The Passenger fills the form with:
+				\begin{itemize}
+					\item Meeting location
+					\item Number of passengers
+				\end{itemize}
+				\item The Passenger submit the request to the system
+				\item If there are missing data or the specified location is not valid or the number of passengers is greater than 3:
+				\begin{enumerate}
+					\item The system notifies the error to the Passenger
+					\item Go back to Event flow \ref{fillForm}
+				\end{enumerate}
+				\item The request is stored in the system
+				\item The system checks the location provided by the Passenger and computes the corresponding zone in the city
+				\item The system, on the base of the city zone computed, retrieves the corresponding taxi queue
+				\item If there are no taxi in the queue:
+				\begin{enumerate}
+					\item Returns an error to the Passenger and invites him to retry later
+					\item Go back to Event flow \ref{fillForm}
+				\end{enumerate}
+			\end{enumerate} \\ \hline
+\end{tabularx}
+\caption{Use case: Taxi request from a Passenger}
+\end{table}
+
+
 \subsubsection{Negative response}
 Tom has already download the mobile application called \textit{myTaxiService} and desire to request a taxi ride from his actual place, located in "Piazzale Gorini 18, Milano" to the "Stazione Centrale of Milano". He enters in the immediate request section of its application, fills the form (source of the journey, number of passengers) and waits for a response from the service.
 After a minute the system responds indicating that there are no taxi available in the corresponding zone and Tom is invited to retry later.
@@ -15,3 +55,5 @@ After a minute the system responds indicating that there are no taxi available i
 \centering
 \includegraphics[scale=0.5]{Images/sequence_taxi_request_refused}
 \end{figure}
+
+\subsubsection{Functional requirements}
