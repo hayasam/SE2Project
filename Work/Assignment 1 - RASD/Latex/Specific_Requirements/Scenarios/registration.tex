@@ -7,10 +7,27 @@ He insert a the username and the password he wants and submit the request of reg
 \begin{tabularx}{\textwidth}{|l|X|} \hline
 Use case & \textbf{Register} \\ \hline 
 Actors & Passenger \\ \hline
-Goals & \begin{itemize}
-			\item A passenger must be able to register to the service
-		\end{itemize} \\ \hline
-Enter condition & None \\
-Exit condition & The passenger is correctly registered to the service
+Goals & A passenger must be able to register to the service \\ \hline
+Enter condition & None \\ \hline
+Event flow & \begin{enumerate}
+				\item The passenger goes to the web application page
+				\item The passenger clicks on the sign up button
+				\item The passenger fills the form with username and password desired
+				\item The passenger clicks the submit button
+				\item If the username is already present in the system or there are missing data
+				\begin{enumerate}
+					\item Notify the Passenger of the error
+					\item Go back to Event flow 3
+				\end{enumerate}	
+				\item The system retrieves the data and stores them
+				\item The system notifies that the registration has been correctly done
+			\end{enumerate} \\ \hline
+Exceptions & If the user, during the insertion of the registration data (username + password) decides to abort the procedure by clicking on the proper button
+			\begin{enumerate}
+				\item The system notifies the passenger of the loss of the inserted data
+				\item The system abort the procedure
+			\end{enumerate}\\ \hline
+Exit condition & The passenger is correctly registered to the service \\ \hline
 \end{tabularx}
+\caption{Use case: Register}
 \end{table}
