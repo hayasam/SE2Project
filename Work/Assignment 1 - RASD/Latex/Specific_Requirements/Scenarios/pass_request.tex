@@ -11,7 +11,7 @@ After a few seconds the system responds indicating that the taxi with identifica
 \subsubsection{Use case}
 \begin{table}[H]
 \centering
-\begin{tabularx}{\textwidth}{|l|X|} \hline
+\begin{longtable}{| p{.20\textwidth} | p{.80\textwidth} |} \hline
 Use case & \textbf{Request a taxi} \\ \hline 
 Actors & Passenger, Taxi Driver \\ \hline
 Goals & A passenger must be able to register to the service \\ \hline
@@ -42,8 +42,14 @@ Event flow & \begin{enumerate}
 					\item Returns an error to the Passenger and invites him to retry later
 					\item Go back to Event flow \ref{fillForm}
 				\end{enumerate}
+				\item The system takes the first taxi in the queue
+				\item The system send the request to the taxi driver
+				\item If the taxi driver does not accept the request:
+				\begin{enumerate}
+					\item AD
+				\end{enumerate}
 			\end{enumerate} \\ \hline
-\end{tabularx}
+\end{longtable}
 \caption{Use case: Taxi request from a Passenger}
 \end{table}
 
