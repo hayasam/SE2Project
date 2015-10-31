@@ -5,3 +5,5 @@ Main.pdf
 *.toc
 *~
 *.out
+*.lot
+*.lof
