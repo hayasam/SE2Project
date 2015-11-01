@@ -3,14 +3,12 @@
 Tom has already download the mobile application called \textit{myTaxiService} and desire to request a taxi ride from his actual place, located in "Piazzale Gorini 18, Milano" to the "Stazione Centrale of Milano". He enters in the immediate request section of its application, fills the form (source of the journey, number of passengers) and waits for a response from the service.
 After a few seconds the system responds indicating that the taxi with identification code T345 is arriving at the requested address. The approximate waiting time for the taxi is 5 minutes.
 
-\begin{figure}[H]
-\centering
-\includegraphics[scale=0.6]{Images/sequence_taxi_request_accepted}
-\end{figure}
+\subsubsection{Negative response}
+Tom has already download the mobile application called \textit{myTaxiService} and desire to request a taxi ride from his actual place, located in "Piazzale Gorini 18, Milano" to the "Stazione Centrale of Milano". He enters in the immediate request section of its application, fills the form (source of the journey, number of passengers) and waits for a response from the service.
+After a minute the system responds indicating that there are no taxi available in the corresponding zone and Tom is invited to retry later.
 
 \subsubsection{Use case}
-\begin{table}[H]
-\centering
+\begin{center}
 \begin{longtable}{| p{.20\textwidth} | p{.80\textwidth} |} \hline
 Use case & \textbf{Request a taxi} \\ \hline 
 Actors & Passenger, Taxi Driver \\ \hline
@@ -37,7 +35,7 @@ Event flow & \begin{enumerate}
 				\item The request is stored in the system
 				\item The system checks the location provided by the Passenger and computes the corresponding zone in the city
 				\item The system, on the base of the city zone computed, retrieves the corresponding taxi queue
-				\item If there are no taxi in the queue:
+				\item If there are no taxi in the queue: \label{noTaxi}
 				\begin{enumerate}
 					\item Returns an error to the Passenger and invites him to retry later
 					\item Go back to Event flow \ref{fillForm}
@@ -46,20 +44,43 @@ Event flow & \begin{enumerate}
 				\item The system send the request to the taxi driver
 				\item If the taxi driver does not accept the request:
 				\begin{enumerate}
-					\item AD
+					\item The system puts the Taxi driver at the bottom of the queue
+					\item Go back to Event flow \ref{noTaxi}
 				\end{enumerate}
+				\item The system sends to the Taxi driver the location of the meeting point with the Passenger
+				\item The system computes an approximate waiting time for the Passenger
+				\item The system informs the Passenger of the forthcoming arrival of the Taxi and the approximate waiting time.
 			\end{enumerate} \\ \hline
-\end{longtable}
+Exceptions & The passenger can abort the procedure only during the	waiting phase. If he decides to abort the procedure:
+			\begin{enumerate}
+			
+			\end{enumerate}
+\\ \hline
 \caption{Use case: Taxi request from a Passenger}
-\end{table}
+\end{longtable}
 
+\end{center}
+\subsubsection{Sequence diagrams}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.6]{Images/sequence_taxi_request_accepted}
+\caption{An immediate positive response to the immediate request of a Passenger}
+\end{figure}
 
-\subsubsection{Negative response}
-Tom has already download the mobile application called \textit{myTaxiService} and desire to request a taxi ride from his actual place, located in "Piazzale Gorini 18, Milano" to the "Stazione Centrale of Milano". He enters in the immediate request section of its application, fills the form (source of the journey, number of passengers) and waits for a response from the service.
-After a minute the system responds indicating that there are no taxi available in the corresponding zone and Tom is invited to retry later.
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.5]{Images/sequence_taxi_request_refused}
+\caption{A complete positive response to the immediate request of a Passenger}
 \end{figure}
 
 \subsubsection{Functional requirements}
+We notice immediately that if all the taxi driver in a queue refuse to a accept the Passenger request, the request will be forwarded again to the first taxi driver in the queue, who is the first one that refused it.
+\\ We think that this behavior is fair but can cause a loop and the Passenger could wait for a response a lot of time.\\
+
+\begin{enumerate}
+\item The system must put the taxi driver at the bottom of the queue if:
+\begin{enumerate}
+	\item He refuses a request
+	\item He does not respond to a request (accepting or refusing) within a certain time from the reception of it (10 seconds).
+\end{enumerate}
+\end{enumerate}
