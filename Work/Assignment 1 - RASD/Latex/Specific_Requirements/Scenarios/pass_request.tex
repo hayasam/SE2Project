@@ -50,10 +50,10 @@ Event flow & \begin{enumerate}
 				\item The system sends to the Taxi driver the location of the meeting point with the Passenger
 				\item The system computes an approximate waiting time for the Passenger
 				\item The system informs the Passenger of the forthcoming arrival of the Taxi and the approximate waiting time.
-			\end{enumerate} \\ \hline
-Exceptions & The passenger can abort the procedure only during the	waiting phase. If he decides to abort the procedure:
+			\end{enumerate} 
 \\ \hline
 \caption{Use case: Taxi request from a Passenger}
+\label{requestTaxiUC}
 \end{longtable}
 
 \end{center}
@@ -62,12 +62,14 @@ Exceptions & The passenger can abort the procedure only during the	waiting phase
 \centering
 \includegraphics[scale=0.6]{Images/sequence_taxi_request_accepted}
 \caption{An immediate positive response to the immediate request of a Passenger}
+\label{request_positive_TaxiSD}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.5]{Images/sequence_taxi_request_refused}
 \caption{A complete positive response to the immediate request of a Passenger}
+\label{request_negative_TaxiSD}
 \end{figure}
 
 \subsubsection{Functional requirements}

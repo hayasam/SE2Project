@@ -50,8 +50,17 @@ It is 9.00 in the morning and Tom has already downloaded the mobile application 
 			\item The system informs the Passenger of the forthcoming arrival of the Taxi and the approximate waiting time.
 		\end{enumerate} \\ \hline
 		Exceptions & The passenger can abort the procedure only during the	waiting phase. If he decides to abort the procedure:
+		\begin{enumerate}
+		\item If the time of cancellation of the reservation is later than 10 minutes before the meeting time:
+		\begin{enumerate}
+			\item The system notifies the Passenger of the impossibility to cancel the reservation
+		\end{enumerate}
+		\item The system cancel the reservation
+		\item The system notifies the Passenger of the successful deleting of the reservation
+		\end{enumerate}
 		\\ \hline
-		\caption{Use case: Taxi request from a Passenger}
+		\caption{Use case: Taxi reservation from a passenger}+
+		\label{reserveTaxiUC}
 	\end{longtable}
 \end{center}
 
@@ -59,6 +68,7 @@ It is 9.00 in the morning and Tom has already downloaded the mobile application 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.5]{Images/sequence_taxi_reservation}
+\label{reserve_taxi_SD}
 \end{figure}
 
 

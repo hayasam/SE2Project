@@ -1,3 +1,23 @@
 \subsection{Taxi driver: end of working day}
 Bob is a Taxi driver that is finishing his working day. He has just finished his last ride and the passenger has just left the taxi. He takes his phone with the application \textit{myTaxiService} already running. He communicates to the system that he has ended the current ride. The system puts him in the taxi queue corresponding to his actual location.\\
 Bob does not want to accept more requests and so he pushes the button devoted to the stopping of the incoming requests. The system removes him from the queue and his taxi is set as not available.
+
+\subsubsection{Use case}
+\begin{center}
+\begin{longtable}{| p{.20\textwidth} | p{.80\textwidth} |} \hline
+	Use case & \textbf{Stop working} \\ \hline 
+	Actors & Taxi Driver \\ \hline
+	Goals & A Taxi Driver must be able to set himself as not available (stop working)  \\ \hline
+	Enter condition & \begin{itemize}
+						\item The Taxi Driver must be already registered to the service
+						\item The Taxi Driver must already have opened the application
+						\item The Taxi Driver must be available
+						\end{itemize} \\ \hline
+	Event flow & \begin{enumerate}
+					\item The Taxi Driver press on the apposite button with the intention of setting himself as not available
+					\item The system receives the updated status of the Taxi Driver
+					\item The system removes the Taxi Driver from the queue
+				\end{enumerate} \\ \hline
+	\caption{Use case: Taxi Driver starts working}
+\end{longtable}
+\end{center}

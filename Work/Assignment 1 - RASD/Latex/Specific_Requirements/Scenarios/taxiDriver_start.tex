@@ -2,3 +2,25 @@
 Bob is a Taxi driver that works in the large city and has already installed the application \textit{myTaxiService - Taxi Driver Edition}.
 He enter in his taxi and opens the mobile application. In the home page of the application he press the button "START" which indicates that he starts his working day. The system automatically stores the identifier of his taxi in the queue corresponding at the location of the taxi (given by a GPS system already installed on the vehicle).
 A message of the system says to Bob that his taxi has been inserted in a waiting queue and a waiting screen appears.
+
+\subsubsection{Use case}
+\begin{center}
+\begin{longtable}{| p{.20\textwidth} | p{.80\textwidth} |} \hline
+	Use case & \textbf{Start working} \\ \hline 
+	Actors & Taxi Driver \\ \hline
+	Goals & A Taxi Driver must be able to set himself as available (start working)  \\ \hline
+	Enter condition & \begin{itemize}
+						\item The Taxi Driver must be already registered to the service
+						\item The Taxi Driver must already have opened the application
+						\end{itemize} \\ \hline
+	Event flow & \begin{enumerate}
+					\item The Taxi Driver press on the apposite button with the intention of setting himself as available
+					\item The system receives the updated status of the Taxi Driver
+					\item The system retrieves the location of the Taxi Driver from the GPS system
+					\item The system computes the actual zone of the Taxi Driver
+					\item The system puts the taxi driver at the bottom of the taxi queue relative to the computed taxi zone.
+					\item The system notifies the Taxi Driver and now he is waiting for a request
+				\end{enumerate} \\ \hline
+	\caption{Use case: Taxi Driver starts working}
+\end{longtable}
+\end{center}
