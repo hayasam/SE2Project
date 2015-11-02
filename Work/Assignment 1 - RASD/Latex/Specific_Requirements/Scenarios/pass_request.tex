@@ -1,4 +1,4 @@
-\subsection{Passenger immediate request}
+\subsection{Passenger request}
 \subsubsection{Positive response}
 Tom has already download the mobile application called \textit{myTaxiService} and desire to request a taxi ride from his actual place, located in "Piazzale Gorini 18, Milano" to the "Stazione Centrale of Milano". He enters in the immediate request section of its application, fills the form (source of the journey, number of passengers) and waits for a response from the service.
 After a few seconds the system responds indicating that the taxi with identification code T345 is arriving at the requested address. The approximate waiting time for the taxi is 5 minutes.
@@ -12,15 +12,15 @@ After a minute the system responds indicating that there are no taxi available i
 \begin{longtable}{| p{.20\textwidth} | p{.80\textwidth} |} \hline
 Use case & \textbf{Request a taxi} \\ \hline 
 Actors & Passenger, Taxi Driver \\ \hline
-Goals & A passenger must be able to register to the service \\ \hline
+Goals & A passenger must be able to request a taxi ride from a location he decides \\ \hline
 Enter condition & \begin{itemize}
-					\item The Passenger must already been registered to the service
+					\item The Passenger must already be registered to the service
 					\item The Taxi driver must be registered to the service
 					\item The Passenger must already have opened the application (mobile or web) and logged in
 					\item The Taxi driver must be available to accept requests
 					\end{itemize} \\ \hline
 Event flow & \begin{enumerate}
-				\item The Passenger goes to the section for requesting an immediate taxi
+				\item The Passenger goes to the section for requesting a taxi ride
 				\item \label{fillForm} The Passenger fills the form with:
 				\begin{itemize}
 					\item Meeting location
@@ -34,7 +34,7 @@ Event flow & \begin{enumerate}
 				\end{enumerate}
 				\item The request is stored in the system
 				\item The system checks the location provided by the Passenger and computes the corresponding zone in the city
-				\item The system, on the base of the city zone computed, retrieves the corresponding taxi queue
+				\item The system, based on the city zone computed, retrieves the corresponding taxi queue
 				\item If there are no taxi in the queue: \label{noTaxi}
 				\begin{enumerate}
 					\item Returns an error to the Passenger and invites him to retry later
@@ -52,9 +52,6 @@ Event flow & \begin{enumerate}
 				\item The system informs the Passenger of the forthcoming arrival of the Taxi and the approximate waiting time.
 			\end{enumerate} \\ \hline
 Exceptions & The passenger can abort the procedure only during the	waiting phase. If he decides to abort the procedure:
-			\begin{enumerate}
-			
-			\end{enumerate}
 \\ \hline
 \caption{Use case: Taxi request from a Passenger}
 \end{longtable}
@@ -74,13 +71,11 @@ Exceptions & The passenger can abort the procedure only during the	waiting phase
 \end{figure}
 
 \subsubsection{Functional requirements}
-We notice immediately that if all the taxi driver in a queue refuse to a accept the Passenger request, the request will be forwarded again to the first taxi driver in the queue, who is the first one that refused it.
+We notice immediately that if all the taxi drivers in a queue refuse to accept the Passenger request, this will be forwarded again to the first taxi driver in the queue, who is the first one that refused it.
 \\ We think that this behavior is fair but can cause a loop and the Passenger could wait for a response a lot of time.\\
 
-\begin{enumerate}
-\item The system must put the taxi driver at the bottom of the queue if:
+The system must put the taxi driver at the bottom of the queue if:
 \begin{enumerate}
 	\item He refuses a request
 	\item He does not respond to a request (accepting or refusing) within a certain time from the reception of it (10 seconds).
-\end{enumerate}
 \end{enumerate}
