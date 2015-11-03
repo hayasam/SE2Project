@@ -26,17 +26,3 @@ A message of the system says to Bob that his taxi has been inserted in a waiting
 	\caption{Use case: Taxi Driver starts working}
 \end{longtable}
 \end{center}
-\subsubsection{Functional Requirements}
-\begin{enumerate}
-\item A Taxi Driver, when he is sets himself as available, must be put at the bottom of the taxi queue relative to his corresponding taxi zone.
-\item A Taxi Driver, when he is available, must be in one and exactly one taxi queue.
-\item A Taxi Driver, when he is not available, must not be in any taxi queue.
-\item At each position of the Taxi Driver retrieved from the GPS data must correspond exactly one and only one taxi zone
-\item A taxi queue must have a number $n$ of taxi driver waiting in the range $n\in[0,+\infty[$
-\item A Taxi driver must be always in one of this three states, which are mutually exclusive:
-\begin{itemize}
-	\item Available (see the glossary at Table \ref{glossary})
-	\item Busy (see the glossary at Table \ref{glossary})
-	\item Not available	(see the glossary at Table \ref{glossary})
-\end{itemize}
-\end{enumerate}

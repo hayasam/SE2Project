@@ -31,20 +31,4 @@ Exceptions & If the user, during the insertion of the registration data (usernam
 Exit condition & The passenger is correctly registered to the service \\ \hline
 \caption{Use case: Register}
 \end{longtable}
-
 \end{center}
-
-\subsubsection{Functional requirements}
-\begin{enumerate}
-\item The system must not allow an already signed up user to register himself (same username) again to the system
-\item The username provided in the registration phase must not be empty
-\item The password provided in the registration phase must not be empty
-\item The system must notify the user in case: 
-	\begin{enumerate}
-	\item The username provided is empty
-	\item The password provided is empty
-	\item The username provided already exists in the system
-	\end{enumerate}
-	and must abort the registration procedure
-\item The system must provide for the Passenger a way to abort the registration procedure
-\end{enumerate}
