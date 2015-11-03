@@ -3,6 +3,10 @@ Project repository for the Software Engineering 2 course (MSc Computer Science a
 
 The repository is divided in subfolders, each one contains the work done for the relative 'Assignment'
 
-#Subfolders
-1. [Work](./Work): working directory
-2. [Delivery](./Delivery): delivery directory where will be put all the finished documents
+#Working directory
+[Work](./Work): working directory
+#Delivery directory
+[Delivery](./Delivery): delivery directory where will be put all the finished documents
+
+1. [Requirements Analysis and Specification Document](./Delivery/Assignment 1/RASD.pdf)
+
