@@ -3,6 +3,8 @@ taxi driver must be in a queue if he is available. must not be in a queue if is 
 */
 
 sig Passenger {
+	username: one Username,
+	password: one Password 
 }
 
 sig TaxiDriver {
@@ -30,6 +32,12 @@ destination: one Position
 sig Position {
 }
 
+sig Username {
+}
+
+sig Password {
+}
+
 sig TaxiZone {
 hasQueue: one TaxiQueue,
 }
@@ -38,6 +46,10 @@ sig TaxiQueue {
 contains: set TaxiDriver
 }
 
+//two passenger can't have the same username
+fact passengerDifferentUsername {
+	no disj p1, p2: Passenger | p1.username = p2.username
+}
 
 //taxi queue must be in one taxi zone
 fact queueInZone {
@@ -59,10 +71,10 @@ fact originNotEqualToDestination {
 	all r: Reservation | r.origin != r.destination
 }
 
-pred show {
-#TaxiZone = 3
-#Request > 1
-#Reservation > 1 
+pred show {	
+#Passenger > 1
+#TaxiDriver > 1
+#TaxiZone > 1
 }
 
-run show for 10
+run show for 5
