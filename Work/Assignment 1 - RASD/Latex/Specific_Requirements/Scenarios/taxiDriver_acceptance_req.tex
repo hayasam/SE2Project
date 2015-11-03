@@ -8,9 +8,33 @@ He press the button "YES" and another screen opens specifying the location of th
 Bob go to the location specified, picks up Alice and brings her to her desired location. At the end of the ride, Bob press the button "End of the ride" on the screen. The system computes his actual location and puts him in the nearest taxi queue.
 
 \subsubsection{Use case}
-See table \ref{requestTaxiUC} and table \ref{reserveTaxiUC}.
+\begin{center}
+\centering
+\begin{longtable}{| p{.20\textwidth} | p{.80\textwidth} |} \hline
+Use case & \textbf{Accept a request} \\ \hline 
+Actors & Taxi Driver, Passenger \\ \hline
+Goals & \begin{itemize}
+			\item A Taxi Driver must receive requests only if he is available
+			\item A Taxi Driver must be able to choose if he wants to accept an incoming request or not
+		\end{itemize} \\ \hline
+Enter condition & The taxi driver must have already opened the application and must already be in a taxi queue \\ \hline
+Event flow & \begin{enumerate}
+				\item The system receives a request from a Passenger, computes the correspondent taxi zone and retrieves the taxi queue
+				\item The system picks the first taxi driver in the queue \label{firstTaxiDriver} and forwards to the taxi driver the request
+				\item If the taxi driver refuses to accept the request:
+				\begin{enumerate}
+					\item The system puts the taxi driver at the bottom of the queue
+					\item Go back to Event flow \ref{firstTaxiDriver}
+				\end{enumerate}
+				\item The system removes the taxi driver from the taxi queue and sets him as busy
+				\item The system communicates the taxi driver with information about the meeting point
+			\end{enumerate} \\ \hline
+Exit condition & A taxi driver is on his way to the meeting point with the passenger  \\ \hline
+\caption{Use case: Accept a request}
+\end{longtable}
+\end{center}
+See also table \ref{requestTaxiUC} and table \ref{reserveTaxiUC}.
 
 \subsubsection{Sequence diagram}
 See figure \ref{request_positive_TaxiSD}, \ref{request_negative_TaxiSD} and \ref{reserve_taxi_SD}
 
-\subsubsection{Functional requirements}
