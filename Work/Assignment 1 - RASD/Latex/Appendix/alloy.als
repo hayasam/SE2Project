@@ -1,5 +1,6 @@
 /*
-taxi driver must be in a queue if he is available. must not be in a queue if is not availble
+taxi driver must be in a queue if he is available. 
+taxi driver must not be in a queue if is not availble
 */
 
 sig Passenger {
