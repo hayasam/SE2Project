@@ -1,13 +1,15 @@
 /*
-taxi driver must be in a queue if he is available. 
-taxi driver must not be in a queue if is not availble
+	ALLOY MODEL
+	myTaxiService
 */
 
+/*Passenger*/
 sig Passenger {
-	username: one Username,
-	password: one Password 
+	username: one string,
+	password: one string 
 }
 
+/*TaxiDriver*/
 sig TaxiDriver {
 status: one AvailabilityStatus,
 isLocatedIn: lone Position
@@ -17,6 +19,7 @@ enum AvailabilityStatus {
 Available, Busy, NotAvailable
 }
 
+/*Types of rides*/
 abstract sig Ride {
 owner: one Passenger,
 origin: one Position,
@@ -33,12 +36,9 @@ destination: one Position
 sig Position {
 }
 
-sig Username {
+sig string {
 }
-
-sig Password {
-}
-
+/*Taxi zones and relative taxi queues*/
 sig TaxiZone {
 hasQueue: one TaxiQueue,
 }
@@ -46,6 +46,8 @@ hasQueue: one TaxiQueue,
 sig TaxiQueue {
 contains: set TaxiDriver
 }
+
+/*FACTS ---> Requirements*/
 
 //two passenger can't have the same username
 fact passengerDifferentUsername {

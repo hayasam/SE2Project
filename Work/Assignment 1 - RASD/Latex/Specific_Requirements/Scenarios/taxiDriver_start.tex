@@ -22,6 +22,7 @@ A message of the system says to Bob that his taxi has been inserted in a waiting
 					\item The system puts the taxi driver at the bottom of the taxi queue relative to the computed taxi zone.
 					\item The system notifies the Taxi Driver and now he is waiting for a request
 				\end{enumerate} \\ \hline
+	Exit condition & The Taxi Driver is waiting in a Taxi Queue\\ \hline
 	\caption{Use case: Taxi Driver starts working}
 \end{longtable}
 \end{center}
@@ -31,5 +32,5 @@ A message of the system says to Bob that his taxi has been inserted in a waiting
 \item A Taxi Driver, when he is available, must be in one and exactly one taxi queue.
 \item A Taxi Driver, when he is not available, must not be in any taxi queue.
 \item At each position of the Taxi Driver retrieved from the GPS data must correspond exactly one and only one taxi zone
-\item A taxi queue must have a number $n$ of 
+\item A taxi queue must have a number $n$ of taxi driver waiting in the range $n\in[0,+\infty[$
 \end{enumerate}
