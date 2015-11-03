@@ -1,5 +1,4 @@
 /*
-reservation can't have same destination and origin
 taxi driver must be in a queue if he is available. must not be in a queue if is not availble
 */
 
@@ -50,14 +49,20 @@ fact taxiDriverOnlyOneQueue {
 	all d: TaxiDriver | one q:TaxiQueue | d in q.contains
 }
 
+//taxi drivers are in a queue only if available
 fact taxiDriverAvailableInQueue {
-	all d: TaxiDriver | AvailabilityStatus.Available in d.AvailabilityStatus | one q:TaxiQueue | d in q.contains
+	all q: TaxiQueue, d: q.contains | d.status = Available
 }
 
-pred show { 
-#TaxiZone > 5
-#Passenger > 5
-#TaxiDriver > 5
+//in within a reservation, origin and destination must differ
+fact originNotEqualToDestination {
+	all r: Reservation | r.origin != r.destination
 }
 
-run show for 50
+pred show {
+#TaxiZone = 3
+#Request > 1
+#Reservation > 1 
+}
+
+run show for 10
