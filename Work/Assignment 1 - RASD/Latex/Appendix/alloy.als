@@ -3,86 +3,142 @@
 	myTaxiService
 */
 
-/*Passenger*/
-sig Passenger {
+sig Passenger
+{
+	hasRequest: lone Request,
+	hasReservation: set Reservation
 }
 
-/*TaxiDriver*/
-sig TaxiDriver {
-status: one AvailabilityStatus,
-isLocatedIn: lone Position
+sig TaxiDriver
+{
+	hasStatus: one Status
 }
 
-enum AvailabilityStatus {
-Available, Busy, NotAvailable
+enum Status 
+{
+	Available, NotAvailable, Busy
 }
 
-/*Types of rides*/
-abstract sig Ride {
-owner: one Passenger,
-origin: one Position,
-isServedBy: lone TaxiDriver
+sig Position
+{
 }
 
-sig Request extends Ride {
+sig TaxiZone
+{
+	hasQueue: one TaxiQueue
 }
 
-sig Reservation extends Ride {
-destination: one Position
+sig TaxiQueue
+{
+	contains: set TaxiDriver
 }
 
-sig Position {
+abstract sig Ride
+{
+	isServedBy: lone TaxiDriver,
+	origin: one Position
 }
 
-/*Taxi zones and relative taxi queues*/
-sig TaxiZone {
-hasQueue: one TaxiQueue,
+sig Request extends Ride
+{
 }
 
-sig TaxiQueue {
-contains: set TaxiDriver
+sig Reservation extends Ride
+{
+	destination: one Position
 }
 
-/*FACTS ---> Requirements*/
-
-//taxi queue must be in one taxi zone
-fact queueInZone {
-	all q: TaxiQueue | one z: TaxiZone | q in z.hasQueue
+//Relation one<-->one between taxiZones and TaxiQueues
+fact queueInOnlyOneZone
+{
+	all q: TaxiQueue {one z: TaxiZone | q in z.hasQueue}
 }
 
-//taxi driver only one queue
-fact taxiDriverOnlyOneQueue {
-	all d: TaxiDriver | lone q:TaxiQueue | d in q.contains
+//A Taxi Driver can be in only one queue
+fact taxiDriverInOnlyOneQueue
+{
+	all d: TaxiDriver {lone q: TaxiQueue | d in q.contains}
 }
-//all the taxi driver in each queue are Available
-fact onlyAvailableTaxiDriverInQueue{
-	all q: TaxiQueue {all d: q.contains | d.status = Available}
+//*************************************************
+fact allTaxiDriverInQueueAreAvailable
+{
+	all d: TaxiDriver | {one q: TaxiQueue | d in q.contains} iff d.hasStatus = Available
 }
-//in within a reservation, origin and destination must differ
-fact originNotEqualToDestination {
+
+assert availableTaxiDriverInQueue {
+	all d: {d1: TaxiDriver | d1.hasStatus = Available } | one q: TaxiQueue | d in q.contains
+}
+
+assert queueHasOnlyAvailableTaxiDriver
+{
+	all q: TaxiQueue {all d: q.contains | d.hasStatus = Available}
+}
+//************************************************
+
+fact onlyOneRidePerTaxiDriver
+{
+	all d: TaxiDriver | #{r: Ride | r.isServedBy = d} <= 1
+}
+
+fact taxiDriverHasRideOnlyIfBusy
+{
+	all d:TaxiDriver | { some r:Ride | r.isServedBy = d } iff d.hasStatus = Busy
+}
+
+assert allRidesHasBusyTaxiDriver
+{
+	all r: {r1 : Ride | #(r1.isServedBy) = 1} | r.isServedBy.hasStatus = Busy
+}
+
+assert ifTaxiDriverBusyServesRide
+{
+	all d: {d1: TaxiDriver | d1.hasStatus = Busy} {one r: Ride | r.isServedBy = d}
+}
+
+assert onlyOneRidePerTaxiDriver
+{
+	all d: TaxiDriver | #{r: Ride | r.isServedBy = d} <= 1
+}
+
+//*******************************************************
+
+fact requestHasOneOwner 
+{
+	all r:Request {one p:Passenger | p.hasRequest = r}
+	
+}
+
+fact reservationHasOneOwner
+{
+	all r: Reservation | one p:Passenger | p.hasReservation = r
+}
+
+assert everyRideHasOwner
+{
+	all r: Ride | #{p: Passenger | p.hasRequest = r or p.hasReservation = r} =1
+}
+
+//*****************************************************
+
+fact originDifferentFromDestination
+{
 	all r: Reservation | r.origin != r.destination
 }
 
-//rides served only by busy taxi drivers
-fact ridesOnlyBusyTaxiDrivers {
-	all r: Ride | r.isServedBy.status = Busy
-}
+check everyRideHasOwner for 8
+check allRidesHasBusyTaxiDriver for 8
+check ifTaxiDriverBusyServesRide for 8
+check availableTaxiDriverInQueue for 8
+check queueHasOnlyAvailableTaxiDriver for 8
+check onlyOneRidePerTaxiDriver for 8
 
-pred show {	
-#Passenger > 1
-#TaxiDriver > 1
-#TaxiZone > 1
-}
 
-assert noBusyTaxiDriverInQueue {
-	no q: TaxiQueue {some d: q.contains | d.status = Busy}
+pred show 
+{
+#{d: TaxiDriver | d.hasStatus = Available}>0
+#{d: TaxiDriver | d.hasStatus = Busy}>0
+#{d: TaxiDriver | d.hasStatus = NotAvailable}>0
 }
-
-assert noNotAvailableTaxiDriverInQueue {
-	no q: TaxiQueue {some d: q.contains | d.status = NotAvailable}
-}
-
-check noBusyTaxiDriverInQueue for 5
-check noNotAvailableTaxiDriverInQueue for 5
 
 run show for 5
+
