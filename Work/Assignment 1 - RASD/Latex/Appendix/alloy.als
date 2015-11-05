@@ -35,9 +35,9 @@ sig TaxiQueue
 
 abstract sig Ride
 {
-	ownedBy: one Passenger,			//A passenger can have a set of Rides
-	isServedBy: lone TaxiDriver,		//A Ride is served by max one TaxiDriver
-	origin: one Position						//Every Ride has an origin (meeting point)
+	ownedBy: one Passenger,		
+	isServedBy: lone TaxiDriver,	
+	origin: one Position		
 }
 
 sig Request extends Ride				
@@ -148,4 +148,4 @@ pred show
 #{d: TaxiDriver | d.hasStatus = NotAvailable}>0
 }
 
-run show for 6
+run show for 5

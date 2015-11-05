@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<alloy>
+
+<view>
+
+<defaultnode/>
+
+<defaultedge/>
+
+<node>
+   <type name="Available"/>
+   <type name="Busy"/>
+   <type name="Int"/>
+   <type name="NotAvailable"/>
+   <type name="Passenger"/>
+   <type name="Ride"/>
+   <type name="String"/>
+   <type name="univ"/>
+   <type name="ordering/Ord"/>
+   <type name="seq/Int"/>
+</node>
+
+<node color="Black">
+   <type name="TaxiZone"/>
+</node>
+
+<node color="Blue">
+   <type name="Reservation"/>
+</node>
+
+<node color="Gray">
+   <type name="TaxiDriver"/>
+</node>
+
+<node color="Green">
+   <type name="Request"/>
+</node>
+
+<node color="White">
+   <type name="TaxiQueue"/>
+</node>
+
+<node shape="Circle">
+   <type name="Status"/>
+</node>
+
+<node shape="Diamond">
+   <type name="Position"/>
+</node>
+
+</view>
+
+</alloy>
