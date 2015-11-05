@@ -4,8 +4,8 @@
 Bob is a Taxi driver that works in the large city and has already installed the application \textit{myTaxiService - Taxi Driver Edition}.
 He is in the middle of his working day (so he has already executed the procedure at "Taxi driver: start of the working day") and he is waiting in a taxi queue corresponding to his actual location in the city.\\
 Suddenly a pop-up shows up saying that there is a new request for a ride and he is asked to say if he wants to accept it or not.
-He press the button "YES" and another screen opens specifying the location of the Passenger. The systems automatically sets the Bob's taxi as "busy" (not available): the taxi is removed from the taxi queue\\
-Bob go to the location specified, picks up Alice and brings her to her desired location. At the end of the ride, Bob press the button "End of the ride" on the screen. The system computes his actual location and puts him in the nearest taxi queue.
+He accepts it and another screen opens specifying the location of the Passenger. The systems automatically sets the Bob's taxi as "busy": the taxi is removed from the taxi queue\\
+Bob go to the location specified, picks up Alice and brings her to her desired location. At the end of the ride, Bob set himself as available. The system, based on his actual location, computes his taxi zone and puts him in the corresponding taxi queue.
 
 \subsubsection{Use case}
 \begin{center}
@@ -28,6 +28,9 @@ Event flow & \begin{enumerate}
 				\end{enumerate}
 				\item The system removes the taxi driver from the taxi queue and sets him as busy
 				\item The system communicates the taxi driver with information about the meeting point
+				\item The taxi driver reaches the meeting point and takes the passenger to the location he desires
+				\item The taxi driver set himself as available
+				\item Go to "Use case: Start Working", Event flow 2
 			\end{enumerate} \\ \hline
 Exit condition & A taxi driver is on his way to the meeting point with the passenger  \\ \hline
 \caption{Use case: Accept a request}

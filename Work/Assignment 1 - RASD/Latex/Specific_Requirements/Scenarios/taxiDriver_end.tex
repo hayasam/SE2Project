@@ -2,7 +2,7 @@
 \subsection{Taxi driver: end of working day}
 \subsubsection{Scenario}
 Bob is a Taxi driver that is finishing his working day. He has just finished his last ride and the passenger has just left the taxi. He takes his phone with the application \textit{myTaxiService} already running. He communicates to the system that he has ended the current ride. The system puts him in the taxi queue corresponding to his actual location.\\
-Bob does not want to accept more requests and so he pushes the button devoted to the stopping of the incoming requests. The system removes him from the queue and his taxi is set as not available.
+Bob does not want to accept more requests and so he sets himself as not available. The system removes him from the queue and his taxi is set as not available.
 
 \subsubsection{Use case}
 \begin{center}
@@ -19,8 +19,9 @@ Bob does not want to accept more requests and so he pushes the button devoted to
 					\item The Taxi Driver press on the apposite button with the intention of setting himself as not available
 					\item The system receives the updated status of the Taxi Driver
 					\item The system removes the Taxi Driver from the queue
+					\item The system set the taxi driver as not available
 				\end{enumerate} \\ \hline
-	Exit condition & The Taxi Driver is not available for accepting request anymore \\ \hline
+	Exit condition & The Taxi Driver is not available\\ \hline
 	\caption{Use case: Taxi Driver stops working}
 \end{longtable}
 \end{center}

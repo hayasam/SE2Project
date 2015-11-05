@@ -31,14 +31,14 @@ For each category of users we must provide an appropriate interface and the clie
 \item A web application or a mobile application for the clients (Passengers)
 \item A mobile application for the Taxi Drivers
 \end{itemize}
-Moreover, it is required to implement a software interface for the developers of the system that manages to simplify the extension of the software with additional taxi services.
+Moreover, it is required to implement a software interface that allows developers to extend the system with additional taxi services.
 \subsection{High level behavior}
 Here we report the exact description of the problem the government of the city supplied to us: \\ \\ 
 Passengers can request a taxi either through a web application or a mobile application.
 The system answers to the request by informing the passenger about the code of the incoming taxi and the waiting time.\\ \\
 Taxi drivers use a mobile application to inform the system about their availability and to confirm that they are going to take care of a certain request. \\ \\  
 The system guarantees a fair management of taxi queues. \\
-In particular the city is divided in taxi zones (approximately 2 km2 each). Each taxi zone is associated to a taxi queue.\\
+In particular the city is divided in taxi zones (approximately $2 km^{2}$ each). Each taxi zone is associated to a taxi queue.\\
 The system automatically computes the distribution of taxi in the various taxi zones based on the GPS information it receives from each taxi. When a taxi is available, its identifier is stored in the taxi queue in the corresponding taxi zone. When a request arrives from a certain taxi zone, the system forwards it to the first taxi queuing (in the taxi queue) in that taxi zone. If the taxi confirms (the request), then the system will send a confirmation to the passenger. If not, then the system will forward the request to the second in the taxi queue and will, at the same time, move the first taxi in the last position in the taxi queue.\\ \\
 A passenger can reserve a taxi by specifying the origin and the destination of the ride. The reservation has to occur at least two hours before the ride. In this case, the system confirms the reservation to the passenger and allocates a taxi to the reservation 10 minutes before the meeting time with the passenger. \\ \\
 Beside the specific user interfaces for passengers and taxi drivers, the system offers also programmatic interfaces to enable the development of additional taxi service (e.g. taxi sharing) on top of the basic one. 

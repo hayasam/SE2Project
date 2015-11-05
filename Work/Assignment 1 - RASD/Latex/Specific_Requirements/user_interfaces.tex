@@ -6,7 +6,7 @@ We will present the user interface regarding only the two mobile applications (o
 The web application interface for the Passenger is a natural extension of the mobile one.
 \\
 \\
-The user interface must be as simple as possible: both the users must be able to use immediately after the installation.
+The user interface must be as simple as possible: both the users must be able to use it immediately after the installation.
 \subsubsection{Home page for the Passenger}
 \begin{figure}[H]
 \centering
@@ -15,7 +15,7 @@ The user interface must be as simple as possible: both the users must be able to
 \end{figure}
 This screen will present to the Passenger the possibility to 
 \begin{itemize}
-\item Request an immediate taxi service
+\item Make a request
 \item Reserve a taxi for a future journey
 \item Check his pending reservations
 \end{itemize}
@@ -24,7 +24,7 @@ This screen will present to the Passenger the possibility to
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.6]{Images/taxi_request}
-\caption{Request for an immediate taxi}
+\caption{Make a request page}
 \end{figure}
 This screen is reached by pressing the button "REQUEST A TAXI" from the Home Page. The user can:
 \begin{itemize}
@@ -69,13 +69,14 @@ The permission of cancelling a reservation will be granted only if this is done 
 \centering
 \includegraphics[scale=0.6]{Images/taxi_coming}
 \end{figure}
-This screen is reached when a taxi is allocated to the Passenger request, both in case of immediate request and reservation.\\
+This screen is reached when a taxi is allocated to the Passenger request, both in case of request and reservation.\\
 The screen will present:
 \begin{itemize}
 \item Taxi identification number
 \item Waiting time
 \item Resume of the submitted data by the Passenger (meeting location, ecc...)
 \end{itemize}
+\pagebreak
 
 \subsubsection{Start working day for a Taxi Driver}
 This is the first screen a Taxi Driver will see at the opening of the application:
@@ -85,6 +86,11 @@ This is the first screen a Taxi Driver will see at the opening of the applicatio
 \caption{First screen of the application for Taxi Drivers}
 \end{figure}
 
+In this page the Taxi Driver can:
+\begin{itemize}
+	\item Set himself as available
+\end{itemize}
+
 \subsubsection{Taxi Driver's waiting for a requests}
 \begin{figure}[H]
 \centering
@@ -93,7 +99,8 @@ This is the first screen a Taxi Driver will see at the opening of the applicatio
 \end{figure}
 This screen is reached by pressing on the "START" button on the previous screen.\\
 Once a request is submitted to the taxi driver the application notifies him with a pop-up saying that there is a request for a ride in the current zone.\\
-It is asked to the taxi driver if he wants to accept the request or not.
+It is asked to the taxi driver if he wants to accept the request or not. \\
+Before receiving a request, the taxi driver can press the "STOP" button if he wants to set himself as not available. This action will bring him to the home page.
 
 \subsubsection{Communication of the location to a Taxi Driver}
 \begin{figure}[H]

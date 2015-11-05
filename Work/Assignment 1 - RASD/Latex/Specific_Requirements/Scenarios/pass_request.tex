@@ -2,12 +2,12 @@
 \subsection{Passenger request}
 \subsubsection{Scenarios}
 \paragraph{Positive response}
-Tom has already download the mobile application called \textit{myTaxiService} and desire to request a taxi ride from his actual place, located in "Piazzale Gorini 18, Milano" to the "Stazione Centrale of Milano". He enters in the immediate request section of its application, fills the form (source of the journey, number of passengers) and waits for a response from the service.
+Tom has already downloaded the mobile application called \textit{myTaxiService} and desires to request a taxi ride from his actual place, located in "Piazzale Gorini 18, Milano" to the "Stazione Centrale of Milano". He enters in the request section of its application, fills the form (source of the journey, number of passengers) and waits for a response from the service.
 After a few seconds the system responds indicating that the taxi with identification code T345 is arriving at the requested address. The approximate waiting time for the taxi is 5 minutes.
 
 \paragraph{Negative response}
-Tom has already download the mobile application called \textit{myTaxiService} and desire to request a taxi ride from his actual place, located in "Piazzale Gorini 18, Milano" to the "Stazione Centrale of Milano". He enters in the immediate request section of its application, fills the form (source of the journey, number of passengers) and waits for a response from the service.
-After a minute the system responds indicating that there are no taxi available in the corresponding zone and Tom is invited to retry later.
+Tom has already downloaded the mobile application called \textit{myTaxiService} and desires to request a taxi ride from his actual place, located in "Piazzale Gorini 18, Milano" to the "Stazione Centrale of Milano". He enters in the request section of its application, fills the form (source of the journey, number of passengers) and waits for a response from the service.
+Immediately the system responds indicating that there are no taxi available in the corresponding zone and Tom is invited to retry later.
 
 \subsubsection{Use case}
 \begin{center}
@@ -19,7 +19,7 @@ Enter condition & \begin{itemize}
 					\item The Passenger must already be registered to the service
 					\item The Taxi driver must be registered to the service
 					\item The Passenger must already have opened the application (mobile or web) and logged in
-					\item The Taxi driver must be available to accept requests
+					\item The Taxi driver must be available
 					\end{itemize} \\ \hline
 Event flow & \begin{enumerate}
 				\item The Passenger goes to the section for requesting a taxi ride
@@ -64,18 +64,15 @@ Exit condition & The passenger is waiting for the taxi driver and the taxi drive
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.6]{Images/sequence_taxi_request_accepted}
-\caption{An immediate positive response to the immediate request of a Passenger}
+\caption{An immediate positive response to the request of a Passenger}
 \label{request_positive_TaxiSD}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.5]{Images/sequence_taxi_request_refused}
-\caption{A complete positive response to the immediate request of a Passenger}
+\caption{A complete positive response to the request of a Passenger}
 \label{request_negative_TaxiSD}
 \end{figure}
-
-We notice immediately that if all the taxi drivers in a queue refuse to accept the Passenger request, this will be forwarded again to the first taxi driver in the queue, who is the first one that refused it.
-\\ We think that this behavior is fair but can cause a loop and the Passenger could wait for a response a lot of time.\\
 
 

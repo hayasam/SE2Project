@@ -13,22 +13,23 @@ We divide the functional requirements of the application by the user class (acto
 	\item The username provided already exists in the system
 	\end{itemize}
 	and must abort the registration procedure
-\item The system must provide for the Passenger a way to abort the registration procedure
-\item If a passenger request for a taxi and his corresponding taxi queue contains waiting (available) taxis then the system must soon or later respond positively to the Passenger
-\item A passenger request must be refuted if and only if there are no taxi driver available in the corresponding taxi queue or the number of passengers of the ride is greater than 3.
+\item The system must provide for the Passenger with a way to abort the registration procedure
+\item If a passenger makes a request and the corresponding taxi queue is not empty, then the system must sooner or later respond positively to the Passenger
+\item A passenger request must be refused if and only if there are no taxi driver available in the corresponding taxi queue or the number of passengers of the ride is greater than 3 \footnote{We notice immediately that if all the taxi drivers in a queue refuse to accept the Passenger request, this will be forwarded again to the first taxi driver in the queue, who is the first one that refused it.
+	\\ We think that this behavior is fair but can cause a loop and the Passenger could wait for a response a lot of time.\\}.
 \item A reservation must be refused if and only if:
 \begin{itemize}
 	\item Origin and destination are the same location
 	\item The number of passengers of the ride is greater than 3
 	\item $\text{time}(\text{meeting time}) - \text{time}(\text{reservation}) < \text{2 hours}$
-	\item $\text{time}(\text{meeting time}) \leq \text{time}(\text{reservation})$
 \end{itemize}
+\item When the system looks for a taxi driver for serving a reservation (10 minutes before the meeting time), if the corresponding taxi queue is empty, it will wait until there is at least one taxi driver in the queue.
 \end{enumerate}
 
 
 \subsection{Taxi driver}
 \begin{enumerate}
-\item A Taxi Driver, when he is sets himself as available, must be put at the bottom of the taxi queue relative to his corresponding taxi zone.
+\item A Taxi Driver, when he sets himself as available, must be put at the bottom of the taxi queue relative to his taxi zone.
 \item A Taxi Driver, when he is available, must be in one and exactly one taxi queue.
 \item A Taxi Driver, when he is not available, must not be in any taxi queue.
 \item At each position of the Taxi Driver retrieved from the GPS data must correspond exactly one and only one taxi zone
@@ -47,5 +48,4 @@ We divide the functional requirements of the application by the user class (acto
 \item A taxi driver can receive requests if and only if he is at the top of a taxi queue.
 \item A taxi driver waiting (available) in a taxi queue must receive requests only from passengers which specified a meeting point inside the correspondent taxi zone
 \item When a Taxi driver accepts a request from a Passenger, he must be removed from the corresponding taxi queue and set as busy.
-\item Once a taxi driver sets himself as not available and the system removes him from the queue, that taxi driver must not be in any other queue: only available taxi driver must be in a queue.
 \end{enumerate}
