@@ -1,0 +1,39 @@
+\documentclass[a4paper]{report}
+\usepackage{amsmath}
+\usepackage[a4paper]{geometry}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{graphicx}
+
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=blue,
+    urlcolor=black
+}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{float}
+\setlength{\extrarowheight}{5pt}
+
+\begin{document}
+\title{\textbf{D}esign \textbf{D}ocument
+\linebreak
+		{\Huge\textit{\textbf{myTaxiService}}}
+		}
+\author{Luca Nanni (850113) \linebreak
+	Giacomo Servadei (854819)}
+\maketitle
+
+\tableofcontents
+
+\input{Introduction/introduction.tex}
+\input{ArchitecturalDesign/architectural_design.tex}
+\input{AlgorithmDesign/algorithm_design.tex}
+\input{UserInterfaceDesign/user_interface_design.tex}
+\input{RequirementsTraceability/requirements_traceability.tex}
+\input{References/references.tex}
+\end{document}
