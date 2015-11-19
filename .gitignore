@@ -1,6 +1,7 @@
 *.aux
 *.log
 Main.pdf
+main.pdf
 *.synctex.gz
 *.toc
 *~
