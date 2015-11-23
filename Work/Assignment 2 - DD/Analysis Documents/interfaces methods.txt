@@ -1,0 +1,36 @@
+--accountManager
+passenger:
+Session login(username,password)
+logout()
+bool register(username,password)
+bool deleteAccount(username)
+
+taxiDriver:
+Session login(username,password)
+logout()
+
+--rideManager
+ridehandler:
+Response makeRequest(location, numberOfPass, passenger)
+Response makeReservation(source, destination, numberOfPass, date, time, passenger)
+List<Reservation> getReservations(passenger)
+
+--geographicEngine
+zoneLocator:
+bool isValidLocation(location)
+Zone getTaxiZone(location)
+
+--taxiManager
+taxiProvider:
+Response provideTaxi(location)
+
+statusHandler:
+bool setAvailabilityStatus(status)
+setLocation(location)
+
+--queueManager:
+taxiManagement
+addTaxi(taxi, zone)
+Taxi getTaxi(zone)
+removeTaxi(taxi)
+changeZone(taxi, zone)
