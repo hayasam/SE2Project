@@ -1,1 +1,47 @@
 \section{Component interfaces}
+Here we present the interfaces of our components: in particular which operations they offer, their meaning and their input/output parameters.
+\subsection{Account Manager}
+\subsubsection{\underline{Passenger}}
+\begin{itemize}
+	\item \texttt{Passenger login(String username, String password)}
+	\item \texttt{void logout(Passenger passenger)}
+	\item \texttt{boolean register(String username, String password)}
+	\item \texttt{boolean deleteAccount(String username, String password)}
+\end{itemize}
+\subsubsection{\underline{TaxiDriver}}
+\begin{itemize}
+	\item \texttt{TaxiDriver login(String username, String password)}
+	\item \texttt{void logout(TaxiDriver taxiDriver)}
+\end{itemize}
+\subsection{Ride Manager}
+\subsubsection{\underline{RideHandler}}
+\begin{itemize}
+	\item \texttt{Response makeRequest(Location location, int numberOfPassengers,\\ Passenger passenger)}
+	\item \texttt{Response makeReservation(Location source, Location destination, \\ int numberOfPassengers, Date date, Time time, Passenger passenger)}
+	\item \texttt{List<Reservation> getReservations(Passenger passenger)}
+	\item \texttt{boolean deleteReservation(Reservation reservation)}
+\end{itemize}
+\subsection{Taxi Manager}
+\subsubsection{\underline{StatusHandler}}
+\begin{itemize}
+	\item \texttt{boolean setAvailabilityStatus(TaxiDriver taxiDriver, AvailabilityStatus status)}
+	\item \texttt{void setLocation(TaxiDriver taxiDriver, Location location)}
+\end{itemize}
+\subsubsection{\underline{TaxiProvider}}
+\begin{itemize}
+	\item \texttt{Response provideTaxi(Location location)}
+\end{itemize}
+\subsection{Geographic Engine}
+\subsubsection{\underline{ZoneLocator}}
+\begin{itemize}
+	\item \texttt{Zone getTaxiZone(Location location)}
+	\item \texttt{boolean isValidLocation(Location location)}
+\end{itemize}
+\subsection{Queue Manager}
+\subsubsection{\underline{TaxiManagement}}
+\begin{itemize}
+	\item \texttt{void addTaxi(TaxiDriver taxi, Zone zone)}
+	\item \texttt{TaxiDriver getTaxi(Zone zone)}
+	\item \texttt{void removeTaxi(TaxiDriver taxi)}
+	\item \texttt{void changeZone(TaxiDriver taxi, Zone zone)}
+\end{itemize}
