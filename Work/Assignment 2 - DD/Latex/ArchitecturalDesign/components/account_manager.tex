@@ -1,1 +1,28 @@
 \subsection{Account Manager}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{../"Analysis Documents"/components/accountManager}
+	\label{fig:accountManager}
+	\caption{Account Manager}
+\end{figure}
+\subsubsection{Provided interfaces}
+\begin{table}[H]
+\begin{longtable}{| p{0.3\textwidth} | p{0.3\textwidth} | p{0.4\textwidth} |}
+\hline
+ \textbf{Provided Interface} & \textbf{Dedicated user} & \textbf{Description} \\ \hline
+Passenger & Passenger's application and relative web application & Login, logout, registration and deletion of the account \\ \hline
+TaxiDriver & Taxi driver's application & Login, logout \\ \hline
+\end{longtable}
+\caption{Account Manager: provided interfaces}
+\label{tab:accountManager:providedInterfaces}
+\end{table}
+\subsubsection{Required interfaces}
+\begin{table}[H]
+\begin{longtable}{| l | p{.80\textwidth} |}
+\hline
+ \textbf{Required Interface} & \textbf{Description and usage} \\ \hline
+DataAccess & Access to the data layer in order to retrieve the account information of the Passengers and the Taxi Drivers \\ \hline
+\end{longtable}
+\caption{Account Manager: required interfaces}
+\label{tab:accountManager:requiredInterfaces}
+\end{table}

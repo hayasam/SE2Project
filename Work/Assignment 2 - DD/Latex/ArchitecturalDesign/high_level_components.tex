@@ -3,8 +3,8 @@
 \begin{figure}
 	\centering
 	\includegraphics[trim= 0 0 0 200,scale=0.4]{../"Analysis Documents"/ArchitectureOverview.png}
-	\label{fig:architectureOverview}
 	\caption{Architecture Overview}
+	\label{fig:architectureOverview}
 \end{figure}
 \paragraph{}Here we can see the different components, both hardware and software, and how they are interconnected from a very high point of view.
 \paragraph{} In particular the web browser will interface the business logic through a web server, which implements services like Servlets and JSP. In this case, so, the chosen protocol will be HTTPS.\\
@@ -12,14 +12,14 @@ As far as mobile applications are concerned they will interface the system throu
 \paragraph{}The application server will be divided in software components differentiated by their role in the implementation of the business logic. For data access and security will be used ready-made components provided by the JEE infrastructure.
 \paragraph{} The application server and the data layer will communicate through a TCP/IP connection.
 \subsection{Business logic components}
-
+\paragraph{} In figure \ref{fig:highLevelComponents} we find an overview of the business logic components of our application.
 \begin{figure}
 	\centering
 	\includegraphics[trim=0 0 150 0, angle=90,scale=0.55]{../"Analysis Documents"/highLevelComponents.png}
+	\caption{High level components of the business logic}
 	\label{fig:highLevelComponents}
-	\caption{High level components of the business logic6}
 \end{figure}
-\paragraph{} In figure \ref{fig:highLevelComponents} we find an overview of the business logic components of our application.
+
 \begin{enumerate}
 	\item \textbf{Account Manager}: It manages the accounts, both of Passengers and Taxi Drivers. It also handles the login and logout phases of both users and the registration for the Passenger and the relative account deleting. It exposes the following interfaces:
 	\begin{itemize}
