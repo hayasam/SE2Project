@@ -41,7 +41,17 @@ From the pseudo-code we understand the following:
 }
 \ENSURE the adding of the taxi driver to the queue corresponding to the zone provided
 \linebreak
-
-
+\STATE $queues$: map having as keys the taxi zones and as value the corresponding queue \linebreak
+$queue:= queues.VALUE(zone)$ \COMMENT {Retrieval of the queue relative to the provided taxi zone} \linebreak
+$result = queue.ADDTAXI(taxi)$ \COMMENT{Adding the taxi driver at the bottom of the queue}
+\RETURN
 \end{algorithmic}
 \end{algorithm}
+Lets analyze in more detail the data structure $queue$ which has the role of storing the taxi drivers during their waiting of calls: it has a FIFO (\textit{first-in-first-out}) policy for the management of its elements as it is visible in figure \ref{fig:FIFOpolicy}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.1]{../"Analysis Documents"/FIFO}
+	\caption{FIFO policy}
+	\label{fig:FIFOpolicy}
+\end{figure}
+In the Java programming language we could implement a class \texttt{TaxiQueue} which store an element of the class \texttt{Queue}, which is already provided by the framework. Below you can see an example of usage of this class:
