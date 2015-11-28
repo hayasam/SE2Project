@@ -12,14 +12,15 @@ The reasons for this choice are:
 	\item The \textit{centrality of the server} and the \textit{sparsity of the clients}: we have different users that need some type of service provided by a particular organization
 	\item The \textit{absence of business logic client-side}: our user devices (web browser and mobile applications) must not need to know the back-end logic of the services they are invoking. This ensure scalability and the possibility to add new services or modify the already present with a minimum effort in the update of the applications client side.
 \end{itemize}
-
+The interaction of a client-server system has the client as initiator of the communication, which makes a \textit{request} to the server. The server, received the request, elaborate a \textit{response} using its internal business logic, and finally send it to the client.
 \subsection{Three-tier-architecture}
-We decided to use a \textit{three-tier-architecture} for our system.\\
+\paragraph{} We decided to use a \textit{three-tier-architecture} for our system.\\
+This is simply a specialization of the client-server architecture in which we specify the different layers and components of our system.\\
 A schematic representation of this responsibility distribution is at figure \ref{fig:3-tier-architecture}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.5]{../"Analysis Documents"/3-tier-architecture.png}
+	\includegraphics[scale=0.4]{../"Analysis Documents"/3-tier-architecture.png}
 	\caption{A representation of a three-tier-architecture}
 	\label{fig:3-tier-architecture}
 \end{figure}
@@ -29,6 +30,11 @@ A schematic representation of this responsibility distribution is at figure \ref
 	\item An \textit{application} layer entitled to manage all the business logic of the system
 	\item A \textit{Data} layer responsible of the storage of informations to be used by the application and presentation layer
 \end{itemize}
-The three levels are completely independent and can be replaced easily. In particular, the presentation layer cannot communicate directly with the data tier, but it must forward its requests to the application one, which will use some data access framework to access the database.
+\paragraph{}The three levels are completely independent and can be replaced easily. In particular, the presentation layer cannot communicate directly with the data tier, but it must forward its requests to the application one, which will use some data access framework to access the database.
+\paragraph{} The reasons of this architectural choice are:
+\begin{itemize}
+	\item The possibility of use \textit{well-defined interfaces} between the different layers. Each layer is dependent uniquely on the interfaces with the other elements of the system. This ensure scalability and, from the data layer side, the possibility of replication and clouding of the resources.
+	\item This subdivision of roles makes the defining of the required \textit{programmatic interface} easier. Each layer and each subcomponent will expose an interface which can be part of an API to be used by the future developers in order to improve the services and create new ones.
+\end{itemize}
 
 

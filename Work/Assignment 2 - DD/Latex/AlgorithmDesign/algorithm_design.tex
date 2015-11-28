@@ -4,7 +4,7 @@ All the algorithms are presented without any reference to a particular programmi
 \paragraph{}Since all the architecture is designed for a client - server interaction an obvious choice of framework would be the \textit{Java Enterprise Edition} framework and so the usage of the Java programming language.
 
 \section{Queue management}
-The following algorithm is in charge of the management of the different taxi queues
+\paragraph{}The following algorithm is in charge of the management of the different taxi queues. It will be used by the \textbf{ManagementLogic} unit, inside the \textbf{QueueManager} component.
 \begin{algorithm}
 \begin{algorithmic}
 \REQUIRE $zone:$ a correct taxi zone
@@ -24,12 +24,12 @@ $returnValue:$ return value
 \end{algorithmic}
 \caption{Retrieval of a taxi from a queue}
 \end{algorithm}
-From the pseudo-code we understand the following:
+\paragraph{}From the pseudo-code we understand the following:
 \begin{itemize}
-	\item The QueueManager stores the taxi queues in a map having has key the taxi zones
+	\item The \textbf{QueueContainer} stores the taxi queues in a map having has key the taxi zones
 	\item Each queue is a particular data structure organized with a FIFO policy
 \end{itemize}
-
+\paragraph{} The following algorithm describe the adding of a taxi in a queue, action performed by the \textbf{ManagementLogic} unit using the interface provided by the \textbf{QueueContainer}
 \begin{algorithm}
 \caption{Adding of a taxi to a queue}
 \begin{algorithmic}
@@ -47,7 +47,7 @@ $result = queue.ADDTAXI(taxi)$ \COMMENT{Adding the taxi driver at the bottom of 
 \RETURN
 \end{algorithmic}
 \end{algorithm}
-Lets analyze in more detail the data structure $queue$ which has the role of storing the taxi drivers during their waiting of calls: it has a FIFO (\textit{first-in-first-out}) policy for the management of its elements as it is visible in figure \ref{fig:FIFOpolicy}
+\paragraph{}Lets analyze in more detail the data structure $queue$ which has the role of storing the taxi drivers during their waiting of calls: it has a FIFO (\textit{first-in-first-out}) policy for the management of its elements as it is visible in figure \ref{fig:FIFOpolicy}
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.1]{../"Analysis Documents"/FIFO}

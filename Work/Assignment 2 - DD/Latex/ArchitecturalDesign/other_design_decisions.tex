@@ -1,3 +1,4 @@
 \section{Other design decisions}
 \paragraph{}From the previous sections is clear that all our architectural design is highly oriented to the subdivision of the entire system into submodules, having each of them a different role in the achieving of the requirements of our application. We can call this approach \textit{component-oriented}.\\
-It is basically an application of the \textit{divide and conquer} design principle
+It is basically an application of the \textit{divide and conquer} design principle.
+\paragraph{} We have taken care of always provide interfaces for the subcomponents applying so the \textit{dependency inversion principle}. The various components of the system depend only on the interfaces of the others and never on the internal representation.
