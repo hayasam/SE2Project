@@ -2,7 +2,7 @@
 The components of the system interact with each other, in order to carry out the various activity that the system must has to accomplish.
 The activity are explained from different perspective as necessary.
 
-\subsection{Passenger makes a Request}
+\subsection{Passenger makes a Request} \label{seq:passengerMakesRequest}
 Components involved and their role:
 \begin{itemize}
 	\item \textbf{Passenger (Application)}: the activity starts when the passenger, from the mobile application, submits the request through the relative form. When the button is pressed, the client calls the method makeRequest of the Ride Handler component passing as parameters all the data of the form. He then expects as response either an affirmative message with the taxi driver info, or a negative message because there are no available taxi for the location provided.
