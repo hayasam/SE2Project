@@ -36,10 +36,10 @@ Components involved and their role:
 \label{subsec:taxi_provision}
 Components involved and their role:
 \begin{itemize}
-	\item \textbf{Taxi Manager}:
-	\item \textbf{Geographic Engine}:
-	\item \textbf{Queue Manager}:
-	\item \textbf{Taxi Driver (Application)}:
+	\item \textbf{Taxi Manager}: it is playing the most important role of for the activity. First it gets the zone corresponding to the location from the Geographic Engine. Then he starts with a loop until either he finds a taxi driver who accepts the request, or the queue of the zone provided is empty. Every cycle it calls the method getTaxi of the Queue Manager to get a taxi driver. It then contacts the taxi driver by asking if he accepts to give a ride from a location. If the taxi driver accepts, the taxi manager returns to the caller the informations of the taxi driver. If the taxi driver does not accept, it first put them back to the queue (causing the taxi driver to be in the last position) and then it asks for a new taxi driver. Eventually, when the queue is empty, he return a negative response.
+	\item \textbf{Taxi Driver (Application)}: here the taxi driver is not a single application, but it refers to the current taxi driver being called by the taxi manager. When the application receive an offer of a request, it just shows a pop up to the user and let him decide whether to accept or not the request. Then it sends the response back to the taxi manager.
+	\item \textbf{Geographic Engine}: it retrieves the corresponding zone of a location
+	\item \textbf{Queue Manager}: after it is called by the taxi manager, he returns the first taxi driver in the corresponding queue of the zone provided. If the queue is  empty it returns a negative response. Eventually it also put back in the queue a taxi driver who did not accept a request.
 \end{itemize}
 \begin{figure}[H]
 	\centering

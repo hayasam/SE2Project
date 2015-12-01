@@ -2,7 +2,7 @@
 *.log
 Main.pdf
 main.pdf
-*.synctex.gz
+*.synctex.gz*
 *.toc
 *~
 *.out
