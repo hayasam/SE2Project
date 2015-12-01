@@ -2,7 +2,7 @@
 Here we summarize our design solutions and 
 \begin{table}[H]
 \centering
-\begin{longtable}{|p{0.05\textwidth}|p{0.3\textwidth}|p{0.1\textwidth}|p{0.5\textwidth}|}
+\begin{longtable}{|p{0.05\textwidth}|p{0.3\textwidth}|p{0.2\textwidth}|p{0.4\textwidth}|}
 \hline
 \multicolumn{2}{|c|}{\textbf{Requirement}} & \multicolumn{2}{c|}{\textbf{Design Solution}} \\ \hline
 R.P.1 & Passengers can't register twice with same username & \hyperref[comp:accountManager]{Account Manager} & The AccountManager manages the login and registration phase, avoiding this to happen  \\ \hline
@@ -10,8 +10,11 @@ R.P.2 & Username provided by passenger in registration phase must not be empty &
 R.P.3 & The password provided in the registration phase must not be empty & \hyperref[comp:accountManager]{Account Manager} & It makes this check \\ \hline
 R.P.4 & The system must notify and abort the registration procedure in the previous 3 cases & \hyperref[comp:accountManager]{Account Manager} & The method $register(username,password)$ provided by the Account Manager will return an error in any of the cases and the passenger GUI will show an appropriate pop-up. \\ \hline
 R.P.5 & The system must provide for the Passenger with a way to abort the registration procedure & \hyperref[ux:passengerApp]{Passenger user interface} & Will be provided, in the user interface, a specific button for stopping the registration procedure \\ \hline
-R.P.6 & If a passenger makes a request and the corresponding taxi queue is not empty, then the system must sooner or later respond positively to the Passenger & 
-\hyperref[seq:passengerMakesRequest]{Passenger request sequence diagram} &  \\ \hline
+R.P.6 & If a passenger makes a request and the corresponding taxi queue is not empty, then the system must sooner or later respond positively to the Passenger &
+\hyperref[seq:passengerMakesRequest]{Passenger request SD}
+\hyperref[seq:provisionOfATaxi]{Provision of a taxi SD}
+ & The TaxiManager will return a taxi to who wants it if the corresponding queue is not empty, and an error message if empty \\ \hline
+R.P.7 & A passenger request must be refused if and only if there are no taxi driver available in the corresponding taxi queue or the number of passengers of the ride is greater than 3 & 
 \end{longtable} 
 \caption{Requirements traceability table}
 \label{tab:reqTraceTable}
