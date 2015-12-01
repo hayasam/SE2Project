@@ -5731,24 +5731,6 @@
 							"defaultDiagram": false,
 							"ownedViews": [
 								{
-									"_type": "UMLActivationView",
-									"_id": "AAAAAAFRPslCpiH/8PU=",
-									"visible": true,
-									"enabled": true,
-									"lineColor": "#000000",
-									"fillColor": "#ffffff",
-									"fontColor": "#000000",
-									"font": "Arial;13;0",
-									"showShadow": true,
-									"containerChangeable": false,
-									"containerExtending": false,
-									"left": 376,
-									"top": 128,
-									"width": 14,
-									"height": 289,
-									"autoResize": false
-								},
-								{
 									"_type": "UMLFrameView",
 									"_id": "AAAAAAFRPsZzhSGqLYU=",
 									"_parent": {
@@ -6095,7 +6077,7 @@
 													"height": 13,
 													"autoResize": false,
 													"underline": false,
-													"text": "Ride Handler",
+													"text": "Ride Manager",
 													"horizontalAlignment": 2,
 													"verticalAlignment": 5
 												},
@@ -8345,7 +8327,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFRPsZzhSGoW5o="
 							},
-							"name": "Ride Handler",
+							"name": "Ride Manager",
 							"stereotype": "component",
 							"visibility": "public",
 							"represent": {
@@ -8432,7 +8414,6 @@
 					"visibility": "public",
 					"isStatic": false,
 					"isLeaf": false,
-					"type": "",
 					"isReadOnly": false,
 					"isOrdered": false,
 					"isUnique": false,

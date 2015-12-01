@@ -1,4 +1,10 @@
 \subsection{Account Manager}\label{comp:accountManager}
+\subsubsection{Internal Components}
+The Account Manager is responsible for all the actions related to users and their account, such as login, logout registration and deletion of an account. Internally it is composed of the following components each with a precise job:
+\begin{itemize}
+	\item \textit{AccountController}: it exposes the interfaces for external calls and manages them. It has access to the Data Access interface in order to add or remove accounts, and to check the validity of credentials during the login phase.
+	\item \textit{SessionManager}: during the login phase, if the credentials has been recognized by the AccountController, the session manager, through the Security layer, provides a valid session to return to the passenger application for future interactions.
+\end{itemize}
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.5]{../"Analysis Documents"/components/accountManager}
@@ -21,7 +27,8 @@ TaxiDriver & Taxi driver's application & Login, logout \\ \hline
 \begin{longtable}{| l | p{.80\textwidth} |}
 \hline
  \textbf{Required Interface} & \textbf{Description and usage} \\ \hline
-DataAccess & Access to the data layer in order to retrieve the account information of the Passengers and the Taxi Drivers \\ \hline
+DataAccess & Access to the data layer in order to retrieve the account information of the Passengers and the Taxi Drivers \\
+Security & It asks the security layer to provide for a session during a log in request \\ \hline
 \end{longtable}
 \caption{Account Manager: required interfaces}
 \label{tab:accountManager:requiredInterfaces}

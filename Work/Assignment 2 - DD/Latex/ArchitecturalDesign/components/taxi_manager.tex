@@ -1,4 +1,10 @@
-\subsection{Taxi Manager}
+\subsection{Taxi Manager}\label{comp:taxiManager}
+\subsubsection{Internal Components}
+The Taxi Manager is responsible for the communication with taxi drivers, and for the management of their life cycle. Internally it is composed of the following components each with a precise job:
+\begin{itemize}
+	\item \textit{TaxiLifeCycleManager}: it manages the life cycle of taxi drivers. In order to do so it exposes an interface for setting the availability status, and for updating the location. It stores all the informations related to taxi drivers through the DataAccess. If a taxi driver sets himself as Available, the component will call the add method of the QueueManager. Oppositely if the taxi driver sets himself as NotAvailable, it will call the remove method. When a taxi driver updates his location, the component computes the zone through the GeographicEngine; if it notices that the zone has changed, it calls the changeZone method of the Taxi Manager.
+	\item \textit{TaxiDispatcher}: it exposes the interface for providing a taxi driver for a location.
+\end{itemize}
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.5]{../"Analysis Documents"/components/taxiManager}
