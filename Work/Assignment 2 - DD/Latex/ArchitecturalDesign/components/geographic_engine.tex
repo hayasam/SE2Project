@@ -1,4 +1,9 @@
 \subsection{Geographic Engine}\label{comp:geographicEngine}
+The Geographic Engine is responsible for calculating the approximative waiting time for a passenger, and for computing the corresponding zone of a location. Internally it is composed of the following components each with a precise job:
+\begin{itemize}
+	\item \textit{WaitingTimeCalculator}: when it receives a call, it forwards the source and the destination to a Google Maps Web Service which computes the approximative traveling time.
+	\item \textit{ZoneCalculator}: it is responsible for storing the geographic definition of the zones and compute if a location is valid, and if it is in which zone is located. To do that it needs the Google Maps Web Service for the activity geocoding, which means to get geographic coordinates from an address.
+\end{itemize}
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.5]{../"Analysis Documents"/components/geographicEngine}
