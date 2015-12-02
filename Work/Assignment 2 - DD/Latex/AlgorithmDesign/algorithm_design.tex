@@ -5,7 +5,7 @@ All the algorithms are presented without any reference to a particular programmi
 
 \section{Queue management}\label{alg:queueManagement}
 \paragraph{}The following algorithm is in charge of the management of the different taxi queues. It will be used by the \textbf{ManagementLogic} unit, inside the \textbf{QueueManager} component.
-\begin{algorithm}
+\begin{algorithm}\label{alg:retrievingOfATaxi}
 \begin{algorithmic}
 \REQUIRE $zone:$ a correct taxi zone
 \ENSURE a provided taxi or an error message, if there is no taxi driver waiting in the queue \linebreak
@@ -32,7 +32,7 @@ $returnValue:$ return value
 \paragraph{} The following algorithm describe the adding of a taxi in a queue, action performed by the \textbf{ManagementLogic} unit using the interface provided by the \textbf{QueueContainer}
 \begin{algorithm}
 \caption{Adding of a taxi to a queue}
-\begin{algorithmic}
+\begin{algorithmic} \label{alg:addingOfATaxi}
 \REQUIRE{Inputs: \\
 	\begin{itemize}
 		\item $taxi:$ a taxi driver that must be inserted in a queue

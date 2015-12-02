@@ -17,7 +17,7 @@ Components involved and their role:
 	\caption{Sequence Diagram of the request}
 \end{figure}
 
-\subsection{Passenger makes a Reservation}
+\subsection{Passenger makes a Reservation}\label{seq:passengerMakesReservation}
 Components involved and their role:
 \begin{itemize}
 	\item \textbf{Passenger (Application)}: the activity starts when the passenger, from the mobile application, submits the reservation through the relative form. When the button is pressed, the client calls the method makeReservation of the Ride Handler component passing as parameters all the data of the form. He expects as a response the outcome of the submission. Unless the location provided is not valid, the response is affirmative. The Passenger application now keeps behaving as usual and gets called by the system less then 10 minutes before the meeting time with the information of the taxi driver.
