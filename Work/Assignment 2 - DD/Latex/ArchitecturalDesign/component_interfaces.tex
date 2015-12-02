@@ -3,51 +3,72 @@ Here we present the interfaces of our components: in particular which operations
 \subsection{Account Manager}
 \subsubsection{\underline{Passenger}}
 \begin{itemize}
-	\item \texttt{Passenger login(String username, String password)}
-	\item \texttt{void logout(Passenger passenger)}
-	\item \texttt{boolean register(String username, String password)}
-	\item \texttt{boolean deleteAccount(String username, String password)}
+	\item \texttt{Passenger login(String username, String password)}\\
+	Given valid credentials, allows the passenger to receive a session and to login.
+	\item \texttt{void logout(Passenger passenger)}\\
+	Given a valid session, it deletes it.
+	\item \texttt{boolean register(String username, String password)}\\
+	It creates a new account for a passenger with the credentials provided.
+	\item \texttt{boolean deleteAccount(String username, String password)}\\
+	Given valid credentials, it deletes the account associated.
 \end{itemize}
 \subsubsection{\underline{TaxiDriver}}
 \begin{itemize}
-	\item \texttt{TaxiDriver login(String username, String password)}
-	\item \texttt{void logout(TaxiDriver taxiDriver)}
+	\item \texttt{TaxiDriver login(String username, String password)}\\
+	Given valid credentials, allows the taxi driver to receive a session and to login.
+	\item \texttt{void logout(TaxiDriver taxiDriver)}\\
+	Given a valid session, it deletes it.
 \end{itemize}
 \subsection{Ride Manager}
 \subsubsection{\underline{RideH
 		andler}}
 \begin{itemize}
-	\item \texttt{Response makeRequest(Location location, int numberOfPassengers,\\ Passenger passenger)}
-	\item \texttt{Response makeReservation(Location source, Location destination, \\ int numberOfPassengers, Date date, Time time, Passenger passenger)}
-	\item \texttt{List<Reservation> getReservations(Passenger passenger)}
-	\item \texttt{boolean deleteReservation(Reservation reservation)}
+	\item \texttt{Response makeRequest(Location location, int numberOfPassengers,\\ Passenger passenger)}\\
+	It starts the activity of making a request. It returns either informations about the taxi driver who is coming, or an invitation to try later.
+	\item \texttt{Response makeReservation(Location source, Location destination, \\ int numberOfPassengers, Date date, Time time, Passenger passenger)}\\
+	It starts the activity of making a reservation. If the time of the reservation is at least 2 hours later, it return a positive message.
+	\item \texttt{List<Reservation> getReservations(Passenger passenger)}\\
+	It returns all the reservations of a given passenger.
+	\item \texttt{boolean deleteReservation(Passenger passenger, Reservation reservation)}\\
+	It deletes a reservation of a passenger.
 \end{itemize}
 \subsection{Taxi Manager}
 \subsubsection{\underline{StatusHandler}}
 \begin{itemize}
-	\item \texttt{boolean setAvailabilityStatus(TaxiDriver taxiDriver, AvailabilityStatus status)}
-	\item \texttt{void setLocation(TaxiDriver taxiDriver, Location location)}
+	\item \texttt{boolean setAvailabilityStatus(TaxiDriver taxiDriver, AvailabilityStatus status)}\\
+	It assigns a new availability status to a taxi driver.
+	\item \texttt{void setLocation(TaxiDriver taxiDriver, Location location)}\\
+	It updates the location of a taxi driver.
 \end{itemize}
 \subsubsection{\underline{TaxiProvider}}
 \begin{itemize}
-	\item \texttt{Response provideTaxi(Location location)}
+	\item \texttt{Response provideTaxi(Location location)}\\
+	Given a valid location, if there is at least one available taxi driver, it returns it.
 \end{itemize}
 \subsection{Geographic Engine}
 \subsubsection{\underline{ZoneLocator}}
 \begin{itemize}
-	\item \texttt{Zone getTaxiZone(Location location)}
-	\item \texttt{List<Zone> getTaxiZones()}
-	\item \texttt{boolean isValidLocation(Location location)}
+	\item \texttt{Zone getTaxiZone(Location location)}\\
+	It computes the corresponding zone of a given location.
+	\item \texttt{List<Zone> getTaxiZones()}\\
+	It returns all the zones.
+	\item \texttt{boolean isValidLocation(Location location)}\\
+	Given a location, it checks whether it is valid or not.
 \end{itemize}
 \subsubsection{\underline{TimeCalculator}}
 \begin{itemize}
-	\item \texttt{Time getTimeEstimation(Location source, Location, destination)}
+	\item \texttt{Time getTimeEstimation(Location source, Location, destination)}\\
+	Given valid source and valid location, it returns an approximative traveling time.
 \end{itemize}
 \subsection{Queue Manager}
 \subsubsection{\underline{TaxiManagement}}
 \begin{itemize}
-	\item \texttt{void addTaxi(TaxiDriver taxi, Zone zone)}
-	\item \texttt{TaxiDriver getTaxi(Zone zone)}
-	\item \texttt{void removeTaxi(TaxiDriver taxi)}
-	\item \texttt{void changeZone(TaxiDriver taxi, Zone zone)}
+	\item \texttt{void addTaxi(TaxiDriver taxi, Zone zone)}\\
+	Given a taxi driver and a zone, it adds the taxi driver to the queue corresponding to the zone.
+	\item \texttt{TaxiDriver getTaxi(Zone zone)}\\
+	It returns the first available taxi from the queue corresponding of the given zone.
+	\item \texttt{void removeTaxi(TaxiDriver taxi)}\\
+	Given a taxi driver, it removes it from the queue he is in.
+	\item \texttt{void changeZone(TaxiDriver taxi, Zone zone)}\\
+	Given a taxi driver and a zone, it remove the taxi driver from the queue he is in, and add it in the queue corresponding to the zone.
 \end{itemize}
