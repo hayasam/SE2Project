@@ -59,3 +59,78 @@ In the Java programming language we could implement a class \texttt{TaxiQueue} w
 \lstinputlisting[language=Java,caption=Example of usage of the Queue interface in Java]{./AlgorithmDesign/QueueExample.java}
 
 \section{Reservation Handler}\label{alg:reservationHandler}
+The nature of the problem of managing the reservation waiting time before the submission of the request to a taxi driver requires a \textit{multi-threaded} solution.\\
+We design the following algorithm to be the conjunction of behaviors of 3 different threads:
+\begin{itemize}
+	\item \textit{Reservation Receiver}
+	\item \textit{Waiter}
+	\item \textit{Reservation Forwarder}
+\end{itemize}
+\begin{algorithm}
+\begin{algorithmic}
+\REQUIRE Input: 
+	\begin{itemize}
+		\item $reservation$ (data structure containing: passenger data, meeting time and date, source and destination, number of passenger)
+	\end{itemize}
+Already present data structure:
+\begin{itemize}
+	\item $reservationList$: ordered list containing all the reservations waiting to be forwarded to a taxi driver. The order is done by meeting time.
+\end{itemize}
+\ENSURE The $reservation$ is added in the correct order in the $reservationList$ and the timer of the \textit{Waiter} is set correctly
+\STATE $meetingTime = reservation.meetingTime$
+\STATE $reservationList.PUT(reservation)$ \COMMENT{the reservation is put in order by meeting time} 
+\STATE $index = reservationList.GETINDEX(reservation)$
+\IF{$index$ is the first}
+	\STATE Sends a signal to the \textit{Waiter} in order to stop is current timer (signal)
+	\STATE $waitingTime=meetingTime - CURRENT\_TIME$
+	\STATE Communicate to the \textit{Waiter} thread the $waitingTime$
+\ENDIF
+\end{algorithmic}
+\caption{\textit{Reservation Receiver}: Adding of a reservation to the data structure}
+\end{algorithm}
+\begin{algorithm}
+\begin{algorithmic}
+\REQUIRE Already present data structure:
+\begin{itemize}
+	\item $timer$: is a counter that can be set as ON/OFF and which can raise an signal when the set time expires.
+\end{itemize}
+\ENSURE The correct setting of the timer
+\STATE $timer.count = 0$ \COMMENT{First initialization of the timer}
+\WHILE{true}
+	\IF{a signal is received}
+		\STATE $waitingTime=$ the parameter communicated by \textit{Reservation Receiver}
+		\STATE $timer.SETTIME(waitingTime)$
+		\STATE $timer.START()$
+	\ENDIF
+	\IF{$timer$ expires}
+		\STATE Send a communication to the \textit{Reservation Forwarder}
+		\STATE $timer.STOP()$
+	\ENDIF
+\ENDWHILE
+\end{algorithmic}
+\caption{\textit{Waiter}: setting of the timer and timer termination}
+\end{algorithm}
+
+\begin{algorithm}
+
+\begin{algorithmic}
+\REQUIRE Already present data structure:
+\begin{itemize}
+	\item $reservationList$: ordered list containing all the reservations waiting to be forwarded to a taxi driver. The order is done by meeting time.
+\end{itemize}
+\WHILE{true}
+	\STATE Wait for a signal by the \textit{Waiter} thread
+	\STATE A signal is received
+	\STATE $first=$ the first index of $reservationList$
+	\STATE $firstReservation=reservationList.GET(first)$ \COMMENT{The next reservation is got from the list}
+	\STATE $reservationList.REMOVE(firstReservation)$ \COMMENT{The next reservation is removed from it}
+	\STATE $nextReservation = reservationList.GET(first)$
+	\STATE $waitingTime = nextReservation.meetingTime - CURRENT\_TIME$
+	\STATE Communicate to the \textit{Waiter} thread the $waitingTime$
+	\STATE Forwards the reservation to the RequestQueueManager
+\ENDWHILE
+
+\end{algorithmic}
+
+\caption{\textit{Reservation Forwarder}: Forwarding of a reservation to the RequestQueueManager}
+\end{algorithm}
