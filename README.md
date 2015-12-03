@@ -12,5 +12,7 @@ The repository is divided in subfolders, each one contains the work done for the
 #Delivery directory
 [Delivery](./Delivery): delivery directory where will be put all the finished documents
 
-1. [Requirements Analysis and Specification Document](./Delivery/Assignment 1 - RASD/RASD.pdf)
+1. [Requirements Analysis and Specification Document](./Delivery/Assignment 1 - RASD/)
+	1. [Original Version](./Delivery/Assignment 1 - RASD/RASD.pdf) (submitted on the deadline)
+	2. [Version 2](./Delivery/Assignment 1 - RASD/RASD - version 2.pdf)
 2. [Design Document](./Delivery/Assignment 2 - DD/DD.pdf)
