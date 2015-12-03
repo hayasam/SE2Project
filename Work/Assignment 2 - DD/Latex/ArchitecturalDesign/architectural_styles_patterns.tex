@@ -15,7 +15,8 @@ The reasons for this choice are:
 The interaction of a client-server system has the client as initiator of the communication, which makes a \textit{request} to the server. The server, received the request, elaborate a \textit{response} using its internal business logic, and finally send it to the client.
 \subsection{The problem of the notification to the clients}
 \paragraph{}A great design issue raised by the requirements of the application is \textit{how the server can contact the clients} (both passengers and taxi drivers). A passenger is contacted by the server when a reservation of him is ready and it was assigned to it a taxi driver. A taxi driver is notified by the server when a request for him is available.
-\paragraph{} This kind of interaction is in conflict with the concept of \textit{client - server} style.
+\paragraph{} This model of interaction is in conflict with the concept of \textit{client - server} style. \\ Anyway this conflict is only at the modeling level because we can \textit{simulate} this interaction with a low level \textit{polling} policy which uses the client-server paradigm with some optimization in order to minimize the number of requests carried out by the client to the server.
+\paragraph{} From the point of view of implementation there are lots of \textit{messaging frameworks} that can be used: JMS maybe is the most natural choice if we would choose the JEE infrastructure.
 \subsection{Three-tier-architecture}
 \paragraph{} We decided to use a \textit{three-tier-architecture} for our system.\\
 This is simply a specialization of the client-server architecture in which we specify the different layers and components of our system.\\
