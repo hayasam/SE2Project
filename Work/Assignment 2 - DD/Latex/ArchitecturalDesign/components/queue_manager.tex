@@ -2,7 +2,7 @@
 \subsubsection{Internal Components}
 The Queue Manager is responsible for the management of available taxi drivers, to store and retrieve them when asked and apply the policy decided. Internally it is composed of the following components each with a precise job:
 \begin{itemize}
-	\item \textit{ManagementLogic}: it is the component which apply the decided policy over available taxi drivers. It exposes general methods such as add remove and get in order to hide the internal management. Before any operation it retrieve the corresponding queue from the QueuesContainer and then it makes the necessary operation on the queue.
+	\item \textit{ManagementLogic}: it is the component which apply the decided policy over available taxi drivers. It exposes general methods such as add remove and get in order to hide the internal management. Before any operation it retrieves the corresponding queue from the QueuesContainer and then it makes the necessary operation on the queue.
 	\item \textit{QueueContainer}: as the name suggests, it is the container of the queues. It keeps then in a map with the zone as the key. It provide the ManagementLogic the methods for creating a queue or retrieving it.
 \end{itemize}
 \begin{figure}[H]

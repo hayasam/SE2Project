@@ -48,7 +48,8 @@ As far as mobile applications are concerned they will interface the system throu
 	\item \textbf{Geographic Engine}: the roles of this component are to implement the algorithms to calculate the zone corresponding to a particular location. It is also in charge of the geographic definition of the taxi zones.\\It exposes the following interfaces:
 	\begin{itemize}
 		\item \texttt{ZoneLocator}: which provides caulculations methods to the other components
+		\item \texttt{TimeCalculator}: which provides approximative traveling time calculation methods
 	\end{itemize}
 	\item \textbf{Security}: a ready-made software component to ensure the safety of tcp/ip connections from the mobile devices and from the web browser
-	\item \textbf{Data Access}: framework that abstracts the underlying database logic and enables to map the business logic entities into tables.6
+	\item \textbf{Data Access}: framework that abstracts the underlying database logic and enables to map the business logic entities into tables.
 \end{enumerate}
