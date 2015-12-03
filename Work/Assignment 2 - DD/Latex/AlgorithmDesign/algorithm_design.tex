@@ -66,7 +66,8 @@ We design the following algorithm to be the conjunction of behaviors of 3 differ
 	\item \textit{Waiter}
 	\item \textit{Reservation Forwarder}
 \end{itemize}
-\begin{algorithm}
+\subsection{Reservation Receiver thread}
+\begin{algorithm}[H]
 \begin{algorithmic}
 \REQUIRE Input: 
 	\begin{itemize}
@@ -88,7 +89,8 @@ Already present data structure:
 \end{algorithmic}
 \caption{\textit{Reservation Receiver}: Adding of a reservation to the data structure}
 \end{algorithm}
-\begin{algorithm}
+\subsection{Waiter thread}
+\begin{algorithm}[H]
 \begin{algorithmic}
 \REQUIRE Already present data structure:
 \begin{itemize}
@@ -110,9 +112,8 @@ Already present data structure:
 \end{algorithmic}
 \caption{\textit{Waiter}: setting of the timer and timer termination}
 \end{algorithm}
-
-\begin{algorithm}
-
+\subsection{Reservation Forwarder thread}
+\begin{algorithm}[H]
 \begin{algorithmic}
 \REQUIRE Already present data structure:
 \begin{itemize}
@@ -129,8 +130,8 @@ Already present data structure:
 	\STATE Communicate to the \textit{Waiter} thread the $waitingTime$
 	\STATE Forwards the reservation to the RequestQueueManager
 \ENDWHILE
-
 \end{algorithmic}
-
 \caption{\textit{Reservation Forwarder}: Forwarding of a reservation to the RequestQueueManager}
 \end{algorithm}
+
+\paragraph{} Here we presented a pseudo-code of the behavior of this three threads. Each language, in particular Java, has its way to implement threads and waiting conditions. In this document we don't care about implementation.

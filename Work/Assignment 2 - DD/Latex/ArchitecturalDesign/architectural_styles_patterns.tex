@@ -13,6 +13,9 @@ The reasons for this choice are:
 	\item The \textit{absence of business logic client-side}: our user devices (web browser and mobile applications) must not need to know the back-end logic of the services they are invoking. This ensure scalability and the possibility to add new services or modify the already present with a minimum effort in the update of the applications client side.
 \end{itemize}
 The interaction of a client-server system has the client as initiator of the communication, which makes a \textit{request} to the server. The server, received the request, elaborate a \textit{response} using its internal business logic, and finally send it to the client.
+\subsection{The problem of the notification to the clients}
+\paragraph{}A great design issue raised by the requirements of the application is \textit{how the server can contact the clients} (both passengers and taxi drivers). A passenger is contacted by the server when a reservation of him is ready and it was assigned to it a taxi driver. A taxi driver is notified by the server when a request for him is available.
+\paragraph{} This kind of interaction is in conflict with the concept of \textit{client - server} style.
 \subsection{Three-tier-architecture}
 \paragraph{} We decided to use a \textit{three-tier-architecture} for our system.\\
 This is simply a specialization of the client-server architecture in which we specify the different layers and components of our system.\\
