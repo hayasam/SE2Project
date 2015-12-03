@@ -12,4 +12,14 @@ It is basically an application of the \textit{divide and conquer} design princip
 	\item \textit{Division of responsibility}: the data storage is delegated to a specialize provider which can manage it with advanced control systems. This feature brings to the following advantages.
 	\item \textit{Security}: to have the data stored far away from the Main Server enhance security
 	\item \textit{Easy scalability} of the database 
-\end{itemize} 
+\end{itemize}
+
+\subsubsection{Programmatic interface} \label{design:programmaticInterface}
+\paragraph{} For the satisfiability of the requirement to have a programmatic interface that can make the developers able to build new functionalities on the top of the already provided, we decided to expose all the component interfaces that we have described (figure \ref{fig:programmaticInterface}).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.45]{../"Analysis Documents"/programmaticInterface}
+	\caption{Schematic representation of the role of the programmatic interface in the system}
+	\label{fig:programmaticInterface}
+\end{figure}

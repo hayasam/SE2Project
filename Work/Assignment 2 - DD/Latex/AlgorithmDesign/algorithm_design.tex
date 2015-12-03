@@ -97,6 +97,7 @@ Already present data structure:
 	\item $timer$: is a counter that can be set as ON/OFF and which can raise an signal when the set time expires.
 \end{itemize}
 \ENSURE The correct setting of the timer
+\STATE
 \STATE $timer.count = 0$ \COMMENT{First initialization of the timer}
 \WHILE{true}
 	\IF{a signal is received}
@@ -123,12 +124,12 @@ Already present data structure:
 	\STATE Wait for a signal by the \textit{Waiter} thread
 	\STATE A signal is received
 	\STATE $first=$ the first index of $reservationList$
-	\STATE $firstReservation=reservationList.GET(first)$ \COMMENT{The next reservation is got from the list}
-	\STATE $reservationList.REMOVE(firstReservation)$ \COMMENT{The next reservation is removed from it}
+	\STATE $firstReservation=reservationList.GET(first)$ \COMMENT{Next reservation is got from the list}
+	\STATE $reservationList.REMOVE(firstReservation)$ \COMMENT{Next reservation is removed from it}
 	\STATE $nextReservation = reservationList.GET(first)$
 	\STATE $waitingTime = nextReservation.meetingTime - CURRENT\_TIME$
 	\STATE Communicate to the \textit{Waiter} thread the $waitingTime$
-	\STATE Forwards the reservation to the RequestQueueManager
+	\STATE Forwards the $firstReservation$ to the RequestQueueManager
 \ENDWHILE
 \end{algorithmic}
 \caption{\textit{Reservation Forwarder}: Forwarding of a reservation to the RequestQueueManager}

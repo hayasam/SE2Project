@@ -4,7 +4,7 @@
 \paragraph{}The application main architecture uses the \textit{client-server} style.
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.4]{../"Analysis Documents"/client-server}
+	\includegraphics[scale=0.35]{../"Analysis Documents"/client-server}
 	\caption{Interactions in a client-server architecture}
 \end{figure}
 The reasons for this choice are:
@@ -12,11 +12,19 @@ The reasons for this choice are:
 	\item The \textit{centrality of the server} and the \textit{sparsity of the clients}: we have different users that need some type of service provided by a particular organization
 	\item The \textit{absence of business logic client-side}: our user devices (web browser and mobile applications) must not need to know the back-end logic of the services they are invoking. This ensure scalability and the possibility to add new services or modify the already present with a minimum effort in the update of the applications client side.
 \end{itemize}
-The interaction of a client-server system has the client as initiator of the communication, which makes a \textit{request} to the server. The server, received the request, elaborate a \textit{response} using its internal business logic, and finally send it to the client.
+\paragraph{}The interaction of a client-server system has the client as initiator of the communication, which makes a \textit{request} to the server. The server, received the request, elaborate a \textit{response} using its internal business logic, and finally send it to the client.
+\paragraph{}We made the design choice to have \textit{thin} clients, which leads to the following advantages:
+\begin{itemize}
+	\item The client applications (and of course, the web pages) are easily modifiable
+	\item The client applications are power consumption optimized
+	\item Easy installation of the app and increased download speed of it (both mobile application and web pages).
+\end{itemize}
 \subsection{The problem of the notification to the clients}
-\paragraph{}A great design issue raised by the requirements of the application is \textit{how the server can contact the clients} (both passengers and taxi drivers). A passenger is contacted by the server when a reservation of him is ready and it was assigned to it a taxi driver. A taxi driver is notified by the server when a request for him is available.
+\paragraph{}A great design issue raised by the requirements of the application is \textit{how the server can contact the clients} (both passengers and taxi drivers). A passenger is contacted by the server when a reservation of him is ready and it was assigned to it a taxi driver. A taxi driver is notified by the server when a request for him is available. We notice immediately that this interaction is basically asynchronous.
 \paragraph{} This model of interaction is in conflict with the concept of \textit{client - server} style. \\ Anyway this conflict is only at the modeling level because we can \textit{simulate} this interaction with a low level \textit{polling} policy which uses the client-server paradigm with some optimization in order to minimize the number of requests carried out by the client to the server.
+\paragraph{} Anyway the high level architectural style for this kind of interaction is basically a variant of the \textit{publish-subscribe} (event-based).
 \paragraph{} From the point of view of implementation there are lots of \textit{messaging frameworks} that can be used: JMS maybe is the most natural choice if we would choose the JEE infrastructure.
+\paragraph{} These design choices have been chosen in order to \textit{reduce} the number of request sent by the clients to the server, which are the main drawback of a client-server approach.
 \subsection{Three-tier-architecture}
 \paragraph{} We decided to use a \textit{three-tier-architecture} for our system.\\
 This is simply a specialization of the client-server architecture in which we specify the different layers and components of our system.\\
