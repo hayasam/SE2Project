@@ -16,3 +16,4 @@ The repository is divided in subfolders, each one contains the work done for the
 
 1. [Requirements Analysis and Specification Document](./Work/Assignment 1 - RASD/)
 2. [Design Document](./Work/Assignment 2 - DD/)
+3. [Code Inspection](./Work/Assignment 3 - CodeInspection)
