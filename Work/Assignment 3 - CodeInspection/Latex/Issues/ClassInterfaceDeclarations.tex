@@ -1,1 +1,37 @@
 \subsection{Class and Interface Declarations}
+\begin{enumerate}
+	\setcounter{enumi}{24}
+	\item The class or interface declarations shall be in the following order :
+	\begin{enumerate}[label=\Alph*.]
+		\item class/interface documentation comment
+		\item class or interface statement
+		\item class/interface implementation comment, if necessary
+		\item class (static) variables
+		\begin{enumerate}[label=\alph*.]
+			\item first public class variables
+			\item next protected class variables
+			\item next package level (no access modifier)
+			\item last private class variables
+		\end{enumerate}
+		\item instance variables
+		\begin{enumerate}[label=\alph*.]
+			\item first public instance variables
+			\item next protected instance variables
+			\item next package level (no access modifier)
+			\item last private instance variables
+		\end{enumerate}
+		\item constructors
+		\item methods
+	\end{enumerate}
+	\begin{itemize}
+		\item Class BeanMethodCalculatorImpl: \cmark
+	\end{itemize}
+	\item Methods are grouped by functionality rather than by scope or accessibility:
+	\begin{itemize}
+		\item Class BeanMethodCalculatorImpl: \cmark
+	\end{itemize}
+	\item Check that the code is free of duplicates, long methods, big classes, breaking encapsulation, as well as if coupling and cohesion are adequate:
+	\begin{itemize}
+		\item Class BeanMethodCalculatorImpl: \cmark
+	\end{itemize}
+\end{enumerate}
