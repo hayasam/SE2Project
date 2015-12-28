@@ -4,20 +4,29 @@
 	\item Blank lines and optional comments are used to separate sections (beginning comments, package/import statements, class/interface declarations which include class variable/attributes declarations, constructors, and methods) :
 	\begin{itemize}
 		\item Method 1: \cmark
-		\item Method 2:
+		\item Method 2: \cmark
 	\end{itemize}
-	\item Where practical, line length does not exceed 80 characters:
+	\item Where practical, line length does not exceed 80 characters:\label{13}
 	\begin{itemize}
 		\item Method 1: \xmark \\
 		Often in the code, lines exceed 80 characters.
 		\code{111}{114}
-		\item Method 2: 
+		\item Method 2: \xmark\\
+		Often in the code, lines exceed 80 characters.
+		\code{171}{172}
+		$$**$$
+		\code{191}{192}
+		$$**$$
+		\code{235}{235}
+		$$**$$
+		\code{239}{239}
 	\end{itemize}
 	\item When line length must exceed 80 characters, it does NOT exceed 120 characters:
 	\begin{itemize}
 		\item Method 1: \xmark \\
 		There is one line (ln.138) exceeding even 120 characters.
 		\code{137}{140}
-		\item Method 2: 
+		\item Method 2: \xmark\\
+		See the point \ref{13}
 	\end{itemize}
 \end{enumerate}
