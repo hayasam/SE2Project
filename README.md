@@ -10,6 +10,7 @@ The repository is divided in subfolders, each one contains the work done for the
 	1. [Version 1](./Delivery/Assignment 1 - RASD/RASD.pdf) (submitted on the deadline)
 	2. [Version 2](./Delivery/Assignment 1 - RASD/RASD - version 2.pdf)
 2. [Design Document](./Delivery/Assignment 2 - DD/DD.pdf)
+3. [Code Inspection](./Delivery/Assignment 3 - CI/CodeInspection.pdf)
 
 #Working directory
 [Work](./Work): working directory
