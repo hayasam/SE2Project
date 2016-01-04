@@ -1,1 +1,3 @@
 \section{Functional role of the class}
+As stated in the in the javadoc,  \textit{BeanMethodCalculatorImpl} is a utility class used to compute the list of methods required to have transaction attributes given an ejb. This is done by the public method \textit{getTransactionalMethodsFor}, which internally uses other private methods.
+The difference between the other public method \textit{getMethodsFor} is that the second one does not exclude any method of the ejb, it just returns them all. The first one instead, excludes some methods, based on the name. Furthermore, the second method returns instances of the class \textit{MethodDescriptor} instead of \textit{Method} as the first one does.
