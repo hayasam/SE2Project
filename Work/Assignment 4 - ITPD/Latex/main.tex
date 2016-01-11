@@ -1,0 +1,49 @@
+\documentclass[a4paper]{report}
+\usepackage{amsmath}
+\usepackage[a4paper]{geometry}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{hhline}
+\usepackage{graphicx}
+%\usepackage{./algorithm} %
+%\usepackage{./algorithmic} %
+
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=blue,
+    urlcolor=black
+}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{float}
+\setlength{\extrarowheight}{5pt}
+
+
+\begin{document}
+\title{\textbf{I}ntegration 
+		\textbf{T}est 
+		\textbf{P}lan 
+		\textbf{D}ocument
+		\linebreak
+		{\Huge\textit{\textbf{myTaxiService}}}
+		}
+\author{Luca Nanni (850113) \linebreak
+	Giacomo Servadei (854819)}
+		
+\maketitle
+
+\tableofcontents
+
+
+\input{Introduction/Introduction.tex}
+\input{Integration_Strategy/Integration_Strategy.tex}
+\input{Individual_Steps_And_Test_Description/Individual_Steps_And_Test_Description.tex}
+\input{Tools_And_Test_Equipment_Required/Tools_And_Test_Equipment_Required.tex}
+\input{Program_Stubs_And_Test_Data_Required/Program_Stubs_And_Test_Data_Required.tex}
+
+
+\end{document}
