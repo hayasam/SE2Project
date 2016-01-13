@@ -8,6 +8,18 @@
 %\usepackage{./algorithm} %
 %\usepackage{./algorithmic} %
 
+\makeatletter
+\gdef\tshortstack{\@ifnextchar[\@tshortstack{\@tshortstack[c]}}
+\gdef\@tshortstack[#1]{%
+  \leavevmode
+  \vtop\bgroup
+    \baselineskip-\p@\lineskip 3\p@
+    \let\mb@l\hss\let\mb@r\hss
+    \expandafter\let\csname mb@#1\endcsname\relax
+    \let\\\@stackcr
+    \@ishortstack}
+\makeatother
+
 \hypersetup{
     colorlinks,
     citecolor=black,

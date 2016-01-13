@@ -1,1 +1,11 @@
 \section{Integration testing strategy}
+During the integration strategy selection we evaluated the following options:
+\begin{itemize}
+	\item[\textit{Top Down}:] We work from the "top" level and simulate the behavior of the lower components through stubs. Our application, anyway, does not have a hierarchical structure in the sense of a central component and subcomponents. 
+	\item[\textit{Sandwich}:] We work at the same time from the "top" level and from the "lower" levels, simulating the middle components through stubs and drivers. We can do the same reasoning as for the top down method.
+	\item[\textit{Bottom Up}:] We work directly from the "lower" level. This allows us to integrate the single modules in a iterative way and to test the single interactions between them.
+	\item[\textit{Threads}:] The integration proceeds by taking only \textit{parts} of the components to integrate. It is useful when we are dealing with complex system. Anyway, we believe that our software complexity does not worth the effort to divide the single components in individual testing threads.
+	\item[\textit{Critical Modules}:] The integration proceed in order of risk for the components in the system. We first integrate the more "risky" (from the implementation/feature/ecc... side) components with the ones used by them and proceed iteratively. As the threads approach, this method is suitable for complex systems and we can do the same reasoning as in the thread method.
+\end{itemize}
+
+Taking all of this options into account, we decided to adopt the \textbf{bottom up} integration approach.

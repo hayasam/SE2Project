@@ -1,1 +1,35 @@
 \section{Elements to be integrated}
+The elements to be integrated are basically all the components described in the DD (section 2.2). Here we list them:
+\begin{itemize}
+	\item \textbf{Passenger applications}: Are the (mobile and web) applications that allows the passenger to interact with the system. They are basically a presentation layer and do not provide any internal logic.
+	\item \textbf{TaxiDriver application}: Is the mobile application that allows the TaxiDriver to interact with the system.
+	\item \textbf{Account Manager}: It manages the accounts, both of Passengers and Taxi Drivers. It also handles the login and logout phases of both users and the registration for the Passenger and the relative account deleting. It exposes the following interfaces:
+	\begin{itemize}
+		\item \texttt{Passenger}: for the interaction with the Passengers
+		\item \texttt{Taxi Driver}: for the interaction with the Taxi Drivers
+	\end{itemize}
+	\item \textbf{Ride Manager}: this component is delegated to the management of the life cycle of the incoming requests and reservations from the passengers. From this point of view it can be divided in two main subcomponents:
+	\begin{itemize}
+		\item \textit{Request Handler}
+		\item \textit{Reservation Handler}
+	\end{itemize}
+	It exposes the following interfaces:
+	\begin{itemize}
+		\item \texttt{RideHandler}: which can be used by the Passenger mobile application and the web browser (web server)
+	\end{itemize}
+	\item \textbf{Taxi Manager}: manages the life cycle of the taxi drivers, starting from the availability status and the retrieving of their location. It is in charge of forwarding to the taxi drivers the calls from the passengers.\\ It exposes the following interfaces:
+	\begin{itemize}
+		\item \texttt{StatusHandler}: to communicate with the Taxi driver
+		\item \texttt{TaxiProvider}: to communicate with the RideManager
+	\end{itemize}
+	\item \textbf{Queue Manager}: it is in charge of the management of the taxi queues in the different zones of the city, applying the decided policy.\\
+	It exposes the following interfaces:
+	\begin{itemize}
+		\item \texttt{TaxiManagement}: to communicate with the TaxiManager
+	\end{itemize}
+	\item \textbf{Geographic Engine}: the roles of this component are to implement the algorithms to calculate the zone corresponding to a particular location. It is also in charge of the geographic definition of the taxi zones.\\It exposes the following interfaces:
+	\begin{itemize}
+		\item \texttt{ZoneLocator}: which provides caulculations methods to the other components
+		\item \texttt{TimeCalculator}: which provides approximative traveling time calculation methods
+	\end{itemize}
+\end{itemize}
