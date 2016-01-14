@@ -12,12 +12,12 @@ We have only one sub-system, so we proceed directly to its integration sequence
 \begin{center}
 	\begin{tabular}{ l | l | l }
 	\textbf{ID} & \textbf{Components interaction} & References \\ \hline
-	I1 \label{I1} & RideManager, TaxiManager, QueueManager $\implies$ GeographicEngine & \\ \hline
-	I2 \label{I2} & TaxiManager $\implies$ QueueManager & \\ \hline
-	I3 \label{I3} & RideManager $\implies$ TaxiManager & \\ \hline
-	I4 \label{I4} & Passenger, TaxiDriver $\implies$ AccountManager & \\ \hline
-	I5 \label{I5} & Passenger $\implies$ RideManager & \\ \hline
-	I6 \label{I6} & TaxiDriver $\implies$ TaxiManager & \\
+	I1 \label{I1} & RideManager, TaxiManager, QueueManager $\implies$ GeographicEngine & \ref{int_I1} \\ \hline
+	I2 \label{I2} & TaxiManager $\implies$ QueueManager & \ref{int_I2} \\ \hline
+	I3 \label{I3} & RideManager $\implies$ TaxiManager & \ref{int_I3}\\ \hline
+	I4 \label{I4} & Passenger, TaxiDriver $\implies$ AccountManager & \ref{int_I4}\\ \hline
+	I5 \label{I5} & Passenger $\implies$ RideManager & \ref{int_I5}\\ \hline
+	I6 \label{I6} & TaxiDriver $\implies$ TaxiManager & \ref{int_I6}\\
 	\end{tabular}
 \end{center}
 %\input{Integration_Strategy/component_integration/Software_Integration_Sequence.tex}
