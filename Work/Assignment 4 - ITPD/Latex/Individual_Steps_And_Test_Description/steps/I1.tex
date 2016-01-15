@@ -1,13 +1,16 @@
 \section{Integration \hyperref[I1]{I1} \label{int_I1}}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{"../Analysis Documents/I1"}
+\caption{Drivers for the integration I1}
+\end{figure}
 \begin{table}[H]
 \begin{tabular}{ l | p{0.7\textwidth} }
 \textbf{Test case ID} & I1.1 \\ \hline
 \textbf{Modules interactions} & RideManager, TaxiManager $\implies$ GeographicEngine \\ \hline
 \textbf{Drivers} &  \hyperref[D1]{D1} = RideManager + TaxiManager \\ \hline
 \textbf{Input} & Ask the zone corresponding to different Locations (both valid and invalid) \\ \hline
-\textbf{Required output} & The GeographicEngine must output a taxi zone if the location is valid, otherwise an error \\ \hline
-\textbf{Precedence} & NULL \\ \hline
-\textbf{Needs} & GeographicEngine must be already implemented
+\textbf{Required output} & The GeographicEngine must output a taxi zone if the location is valid, otherwise an error
 \end{tabular}
 \caption{Test case I1.1}
 \end{table}
@@ -18,9 +21,7 @@
 \textbf{Modules interactions} & QueueManager $\implies$ GeographicEngine \\ \hline
 \textbf{Drivers} &  \hyperref[D2]{D2} = QueueManager \\ \hline
 \textbf{Input} & The QueueManager driver asks the GeographicEngine for the list of all the taxi zone in the system \\ \hline
-\textbf{Required output} & The GeographicEngine must provide the list of taxi zones \\ \hline
-\textbf{Precedence} & NULL \\ \hline
-\textbf{Needs} & GeographicEngine must be already implemented
+\textbf{Required output} & The GeographicEngine must provide the list of taxi zones
 \end{tabular}
 \caption{Test case I1.2}
 \end{table}
@@ -31,9 +32,7 @@
 \textbf{Modules interactions} & RideManager $\implies$ GeographicEngine \\ \hline
 \textbf{Drivers} &  \hyperref[D3]{D3} = RideManager \\ \hline
 \textbf{Input} & The RideManager asks the GeographicEngine to calculate the approximate waiting time for the Passenger. It provides a source location (which may be not valid) and a destination location (which may be not valid) \\ \hline
-\textbf{Required output} & If both the locations are valid, the GeographicEngine must answer with the estimated waiting time. Otherwise with an error. \\ \hline
-\textbf{Precedence} & NULL \\ \hline
-\textbf{Needs} & GeographicEngine must be already implemented
+\textbf{Required output} & If both the locations are valid, the GeographicEngine must answer with the estimated waiting time. Otherwise with an error.
 \end{tabular}
 \caption{Test case I1.3}
 \end{table}
