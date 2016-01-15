@@ -9,7 +9,8 @@ We have only one sub-system, so we proceed directly to its integration sequence
 \paragraph{}In figure \ref{fig:components} we show the components of our system as we modeled it in the Design Document. In particular, we show the \textit{dependencies} between them through arrows with this notation: if a component A points to a component B, it means that A \textit{needs} B for its execution. For example: the TaxiManager component needs for its execution components GeographicEngine and QueueManager.
 
 \paragraph{} This is the designed integration plan for the components:
-\begin{center}
+\begin{table}[H]
+\centering
 	\begin{tabular}{ l | l | l }
 	\textbf{ID} & \textbf{Components interaction} & References \\ \hline
 	I1 \label{I1} & RideManager, TaxiManager, QueueManager $\implies$ GeographicEngine & \ref{int_I1} \\ \hline
@@ -19,6 +20,7 @@ We have only one sub-system, so we proceed directly to its integration sequence
 	I5 \label{I5} & Passenger $\implies$ RideManager & \ref{int_I5}\\ \hline
 	I6 \label{I6} & TaxiDriver $\implies$ TaxiManager & \ref{int_I6}\\
 	\end{tabular}
-\end{center}
+	\caption{Integration sequence}
+\end{table}
 %\input{Integration_Strategy/component_integration/Software_Integration_Sequence.tex}
 %\input{Integration_Strategy/component_integration/Subsystem_integration_Sequence.tex}
