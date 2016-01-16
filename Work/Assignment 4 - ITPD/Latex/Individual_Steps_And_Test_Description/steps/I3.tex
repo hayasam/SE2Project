@@ -1,11 +1,17 @@
 \section{Integration \hyperref[I3]{I3} \label{int_I3}}
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 0.5]{"../Analysis Documents/I3"}
+\caption{Drivers for the integration I3}
+\end{figure}
+
 
 \begin{table}[H]
 \begin{tabular}{ l | p{0.7\textwidth} }
 \textbf{Test case ID} & I3.1 \\ \hline
 \textbf{Modules interactions} & RideManager $\implies$ TaxiManager \\ \hline
-\textbf{Drivers} &  \hyperref[D3]{D3} = RideManager \\ \hline
-\textbf{Input} & The RideManager asks the GeographicEngine to calculate the approximate waiting time for the Passenger. It provides a source location (which may be not valid) and a destination location (which may be not valid) \\ \hline
+\textbf{Drivers} &  \hyperref[D4]{D4} = RideManager \\ \hline
+\textbf{Input} &  \\ \hline
 \textbf{Required output} & If both the locations are valid, the GeographicEngine must answer with the estimated waiting time. Otherwise with an error.
 \end{tabular}
 \caption{Test case I1.3}
