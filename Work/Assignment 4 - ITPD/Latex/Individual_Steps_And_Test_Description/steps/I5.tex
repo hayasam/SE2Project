@@ -1,1 +1,17 @@
 \section{Integration \hyperref[I5]{I5} \label{int_I5}}
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 0.5]{"../Analysis Documents/I5"}
+\caption{Drivers for the integration I5}
+\end{figure}
+
+\begin{table}[H]
+\begin{tabular}{ l | p{0.7\textwidth} }
+\textbf{Test case ID} & I5.1 \\ \hline
+\textbf{Modules interactions} & RideManager $\implies$ TaxiManager \\ \hline
+\textbf{Drivers} &  \hyperref[D4]{D4} = RideManager \\ \hline
+\textbf{Input} & The RideManager asks the TaxiManager for a taxi given the location of the passenger it is serving. Provide different locations in order to check when the TaxiManager gives error. \\ \hline
+\textbf{Required output} & The TaxiManager must retrieve a taxi driver for the call or give an error if there are no taxi driver available.
+\end{tabular}
+\caption{Test case I5.1}
+\end{table}
