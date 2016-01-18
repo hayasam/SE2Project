@@ -1,1 +1,14 @@
 \chapter{Tools and test equipment required}
+\section{JUnit}
+\textit{Junit} is the framework of choice for the evaluation and statistical analysis of the test results. The reasons for this choice are:
+\begin{itemize}
+	\item It is the most famous testing framework, and there are good chances that it is well known in the development team devoted to the project.
+	\item It uses the Java programming language, and since we are planning to use the JEE environment, its integration will be simpler
+	\item There is a graphical plug-in for the Eclipse IDE, which will be the programming environment of choice during the development.
+\end{itemize}
+
+\subsection{DbUnit}
+In addition we can use also use \textit{DbUnit}, which is a JUnit extension that we can use to initialize the database with a "state" that is well known. The real advantage of this approach is that we divide the test data creation from the test code.
+
+\section{Versioning system}
+We believe that the usage of a versioning system (like \textit{Git}) is essential for the testing phase success, as for the development phase. Developers will provide corrections and discuss enhancements, with the side effect of creation of a lot of intermediate different versions of the same unit or set of units.

@@ -1,1 +1,17 @@
 \section{Dependencies}
+Here we show the dependency graph between the integrations. An arrow from integration $I_i$ to integration $I_j$ means that integration $I_i$ needs first the execution of integration $I_j$ in order to be carried on.
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale = 0.5]{"../Analysis Documents/Dependencies"}
+	\caption{Dependency graph of the integrations}
+	\label{fig:dependency}
+\end{figure}
+
+A possible integration plan is showed in figure \ref{fig:schedule}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale = 0.6]{"../Analysis Documents/schedule"}
+	\caption{Dependency graph of the integrations}
+	\label{fig:schedule}
+\end{figure}
+As we notice, we can introduce some parallelism between the different integrations.
