@@ -4,3 +4,14 @@
 \includegraphics[scale = 0.5]{"../Analysis Documents/I6"}
 \caption{Drivers for the integration I6}
 \end{figure}
+
+\begin{table}[H]
+	\begin{tabular}{ l | p{0.7\textwidth} }
+		\textbf{Test case ID} & I6.1 \\ \hline
+		\textbf{Modules interactions} & TaxiDriver $\implies$ TaxiManager \\ \hline
+		\textbf{Drivers} &  \hyperref[D9]{D9} = TaxiDriver \\ \hline
+		\textbf{Input} &  The TaxiDriver driver changes both availability status and location of taxi drivers.\\ \hline
+		\textbf{Required output} & The TaxiManager has to put taxi drivers in the right zone based on the location and the availability status.
+	\end{tabular}
+	\caption{Test case I6.1}
+\end{table}

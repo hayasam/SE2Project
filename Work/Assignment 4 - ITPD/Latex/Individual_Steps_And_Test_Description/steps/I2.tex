@@ -4,3 +4,14 @@
 \includegraphics[scale = 0.5]{"../Analysis Documents/I2"}
 \caption{Drivers for the integration I2}
 \end{figure}
+
+\begin{table}[H]
+	\begin{tabular}{ l | p{0.7\textwidth} }
+		\textbf{Test case ID} & I2.1 \\ \hline
+		\textbf{Modules interactions} & TaxiManager $\implies$ QueueManager \\ \hline
+		\textbf{Drivers} &  \hyperref[D4]{D4} = TaxiManager \\ \hline
+		\textbf{Input} &  The TaxiManager driver adds taxi drivers to the data structure and changes them locations. He then remove then or it gets them out of the structures \\ \hline
+		\textbf{Required output} & The taxi drivers returned, have to respect the priority (the order in which they have been added to the queues) and they have to respect the zone they where added in.
+	\end{tabular}
+	\caption{Test case I2.1}
+\end{table}
