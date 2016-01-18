@@ -8,10 +8,21 @@
 \begin{table}[H]
 \begin{tabular}{ l | p{0.7\textwidth} }
 \textbf{Test case ID} & I5.1 \\ \hline
-\textbf{Modules interactions} & RideManager $\implies$ TaxiManager \\ \hline
-\textbf{Drivers} &  \hyperref[D4]{D4} = RideManager \\ \hline
-\textbf{Input} & The RideManager asks the TaxiManager for a taxi given the location of the passenger it is serving. Provide different locations in order to check when the TaxiManager gives error. \\ \hline
-\textbf{Required output} & The TaxiManager must retrieve a taxi driver for the call or give an error if there are no taxi driver available.
+\textbf{Modules interactions} & Passenger $\implies$ RideManager \\ \hline
+\textbf{Drivers} &  \hyperref[D7]{D7} = Passenger \\ \hline
+\textbf{Input} & The Passenger makes different requests with different parameters: locations and number of passengers must be both valid and not\\ \hline
+\textbf{Required output} & The RideManager must respond with an acknowledgement in case a taxi driver has been found, or with an error, in case the input data are not valid or there are not taxi drivers available
 \end{tabular}
 \caption{Test case I5.1}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{ l | p{0.7\textwidth} }
+\textbf{Test case ID} & I5.2 \\ \hline
+\textbf{Modules interactions} & Passenger $\implies$ RideManager \\ \hline
+\textbf{Drivers} &  \hyperref[D7]{D7} = Passenger \\ \hline
+\textbf{Input} & The Passenger makes different reservations with different parameters: locations, number of passengers and time must be tried with both valid and not valid values\\ \hline
+\textbf{Required output} & The RideManager must respond with an acknowledgement in case the reservation has been stored, or with an error, in case the input data are not valid
+\end{tabular}
+\caption{Test case I5.2}
 \end{table}
