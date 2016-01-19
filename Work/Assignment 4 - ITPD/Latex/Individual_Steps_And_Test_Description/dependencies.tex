@@ -1,8 +1,8 @@
-\section{Dependencies}
+\section{Dependencies and final test plan}
 Here we show the dependency graph between the integrations. An arrow from integration $I_i$ to integration $I_j$ means that integration $I_i$ needs first the execution of integration $I_j$ in order to be carried on.
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale = 0.5]{"../Analysis Documents/Dependencies"}
+	\includegraphics[scale = 0.45]{"../Analysis Documents/Dependencies"}
 	\caption{Dependency graph of the integrations}
 	\label{fig:dependency}
 \end{figure}
@@ -14,4 +14,13 @@ A possible integration plan is showed in figure \ref{fig:schedule}
 	\caption{Schedule of a possible integration plan}
 	\label{fig:schedule}
 \end{figure}
-As we notice, we can introduce some parallelism between the different integrations.\\The graph is to be read as the sequence of integration steps during the testing phase. If an integration step is over an other or more, it means that can be executed in parallel with it.
+As we notice, we can introduce some parallelism between the different integrations.\\The graph is to be read as the sequence of integration steps during the testing phase. If an integration step is over an other or more, it means that can be executed in parallel with it.\\
+\\
+In particular in this graph we state that:
+\begin{enumerate}
+\item Integrations \hyperref[I1]{I1} and \hyperref[I4]{I4} proceed in parallel
+\item Follows integration \hyperref[I2]{I2}
+\item Follows integration \hyperref[I3]{I3}
+\item Follow integrations \hyperref[I5]{I5} and \hyperref[I6]{I6} in parallel
+\item Follows the \hyperref[final]{final} integration
+\end{enumerate}
