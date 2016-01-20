@@ -1,12 +1,137 @@
-\section{Drivers}
+\section{Drivers and data required}
+Here we summarize the drivers required by the integration test plan described in \ref{sequence} and in chapter \ref{chapter3}.\\ Since we are using the bottom up approach and the unit testing is supposed to have been already done, we do not need any stub for the components.
 
-\begin{itemize}
-	\item D1 \label{D1}
-	\item D2 \label{D2}
-	\item D3 \label{D3}
-	\item D4 \label{D4}
-	\item D5 \label{D5}
-	\item D6 \label{D6}
-	\item D7 \label{D7}
-	\item D8 \label{D8}
-\end{itemize}
+\begin{table}[H]
+	\begin{tabular}{ l | p{0.7\textwidth} }
+		\textbf{Driver name} & D1\label{D1} \\ \hline
+		\textbf{Mocked component(s)} & RideManager + TaxiManager \\ \hline
+		\textbf{Tested component} & GeographicEngine \\ \hline
+		\textbf{Tested interface} & \texttt{ZoneLocator}:
+				\begin{itemize}
+					\item \texttt{getTaxiZone(Location location)}
+				\end{itemize} \\ \hline
+		\textbf{Required Data} & Set of locations: both inside the city (valid) and out (not valid), or incorrect (misspelled,ecc...)
+	\end{tabular}
+	\caption{Driver D1}
+\end{table}
+
+\begin{table}[H]
+	\begin{tabular}{ l | p{0.7\textwidth} }
+		\textbf{Driver name} & D2\label{D2} \\ \hline
+		\textbf{Mocked component(s)} & QueueManager \\ \hline
+		\textbf{Tested component} & GeographicEngine \\ \hline
+		\textbf{Tested interface} & \texttt{ZoneLocator}: \begin{itemize}
+					\item \texttt{List<Zone> getTaxiZones()}
+				\end{itemize} \\ \hline
+		\textbf{Required Data} & NULL
+	\end{tabular}
+	\caption{Driver D2}
+\end{table}
+
+\begin{table}[H]
+	\begin{tabular}{ l | p{0.7\textwidth} }
+		\textbf{Driver name} & D3\label{D3} \\ \hline
+		\textbf{Mocked component(s)} & RideManager \\ \hline
+		\textbf{Tested component} & GeographicEngine \\ \hline
+		\textbf{Tested interface} & \texttt{TimeCalculator}:
+		\begin{itemize}
+			\item \texttt{Time getTimeEstimation(Location source, Location destination)}
+		\end{itemize} \\ \hline
+		\textbf{Required Data} & Set of locations: both inside the city (valid) and out (not valid), or incorrect (misspelled,ecc...)
+	\end{tabular}
+	\caption{Driver D3}
+\end{table}
+
+\begin{table}[H]
+	\begin{tabular}{ l | p{0.7\textwidth} }
+		\textbf{Driver name} & D4\label{D4} \\ \hline
+		\textbf{Mocked component(s)} & TaxiManager \\ \hline
+		\textbf{Tested component} & QueueManager \\ \hline
+		\textbf{Tested interface} & \texttt{TaxiManagement}:
+		\begin{itemize}
+			\item \texttt{void addTaxi(TaxiDriver taxi, Zone zone)}
+			\item \texttt{TaxiDriver getTaxi(Zone zone)}
+			\item \texttt{void removeTaxi(TaxiDriver taxi)}
+			\item \texttt{void changeZone(TaxiDriver taxi, Zone zone)}
+		\end{itemize} \\ \hline
+		\textbf{Required Data} & Set of zones and taxi driver objects
+	\end{tabular}
+	\caption{Driver D4}
+\end{table}
+
+
+\begin{table}[H]
+	\begin{tabular}{ l | p{0.7\textwidth} }
+		\textbf{Driver name} & D5\label{D5} \\ \hline
+		\textbf{Mocked component(s)} & RideManager \\ \hline
+		\textbf{Tested component} & TaxiManager \\ \hline
+		\textbf{Tested interface} & \texttt{TaxiProvider}:
+		\begin{itemize}
+			\item \texttt{Response provideTaxi(Location location)}
+		\end{itemize} \\ \hline
+		\textbf{Required Data} & Set of locations: both inside the city (valid) and out (not valid), or incorrect (misspelled,ecc...)
+	\end{tabular}
+	\caption{Driver D5}
+\end{table}
+
+\begin{table}[H]
+	\begin{tabular}{ l | p{0.7\textwidth} }
+		\textbf{Driver name} & D6\label{D6} \\ \hline
+		\textbf{Mocked component(s)} & Passenger \\ \hline
+		\textbf{Tested component} & AccountManager \\ \hline
+		\textbf{Tested interface} & \texttt{Passenger}:
+		\begin{itemize}
+			\item \texttt{Passenger login(String username, String password)}
+			\item \texttt{void logout(Passenger passenger)}
+			\item \texttt{boolean register(String username, String password)}
+			\item \texttt{boolean deleteAccount(String username, String password)}
+		\end{itemize} \\ \hline
+		\textbf{Required Data} & Set of strings for username and passwords. Also username and password empty and incorrect
+	\end{tabular}
+	\caption{Driver D6}
+\end{table}
+
+\begin{table}[H]
+	\begin{tabular}{ l | p{0.7\textwidth} }
+		\textbf{Driver name} & D7\label{D7} \\ \hline
+		\textbf{Mocked component(s)} & TaxiDriver \\ \hline
+		\textbf{Tested component} & AccountManager \\ \hline
+		\textbf{Tested interface} & \texttt{TaxiDriver}:
+		\begin{itemize}
+			\item \texttt{TaxiDriver login(String username, String password)}
+			\item \texttt{void logout(TaxiDriver taxidriver)}
+		\end{itemize} \\ \hline
+		\textbf{Required Data} & Set of strings for username and passwords. Also username and password empty and incorrect
+	\end{tabular}
+	\caption{Driver D7}
+\end{table}
+
+\begin{table}[H]
+	\begin{tabular}{ l | p{0.7\textwidth} }
+		\textbf{Driver name} & D8\label{D8} \\ \hline
+		\textbf{Mocked component(s)} & Passenger \\ \hline
+		\textbf{Tested component} & RideManager \\ \hline
+		\textbf{Tested interface} & \texttt{RideHandler}:
+		\begin{itemize}
+			\item \texttt{Response makeRequest(Location location, int numberOfPassengers, Passenger passenger)}
+			\item \texttt{Response makeReservation(Location source, Location destination, int numberOfPassengers, Date date, Time time, Passenger passenger)}
+		\end{itemize} \\ \hline
+		\textbf{Required Data} & Set of locations: both inside the city (valid) and out (not valid), or incorrect (misspelled,ecc...). Set of numbers, also negative. Set of dates, also in the past
+	\end{tabular}
+	\caption{Driver D8}
+\end{table}
+
+\begin{table}[H]
+	\begin{tabular}{ l | p{0.7\textwidth} }
+		\textbf{Driver name} & D9\label{D9} \\ \hline
+		\textbf{Mocked component(s)} & TaxiDriver \\ \hline
+		\textbf{Tested component} & TaxiManager \\ \hline
+		\textbf{Tested interface} & \texttt{StatusHandler}:
+		\begin{itemize}
+			\item \texttt{boolean setAvailabilityStatus(TaxiDriver taxiDriver, AvailabilityStatus status)}
+			\item \texttt{void setLocation(TaxiDriver taxiDriver, Location location)}
+		\end{itemize} \\ \hline
+		\textbf{Required Data} & Set of locations: both inside the city (valid) and out (not valid), or incorrect (misspelled,ecc...). Set of statuses, both valid and invalid
+	\end{tabular}
+	\caption{Driver D8}
+\end{table}

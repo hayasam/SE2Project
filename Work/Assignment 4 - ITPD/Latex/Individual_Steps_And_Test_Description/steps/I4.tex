@@ -9,7 +9,7 @@
 \begin{table}[H]
 	\begin{tabular}{ l | p{0.7\textwidth} }
 		\textbf{Test case ID} & I4.1 \\ \hline
-		\textbf{Modules interactions} & TaxiManager $\implies$ QueueManager \\ \hline
+		\textbf{Modules interactions} & Passenger $\implies$ AccountManager \\ \hline
 		\textbf{Drivers} &  \hyperref[D6]{D6} = Passenger \\ \hline
 		\textbf{Input} &  The Passenger driver makes multiple fake accounts using special characters in the username and password. He tries then to login and logout with those accounts and also delete them. \\ \hline
 		\textbf{Required output} & The AccountManager should provide valid sessions in the login phase and create and delete accounts without errors. It also has to destroy session during the logout phase.
@@ -20,7 +20,7 @@
 \begin{table}[H]
 	\begin{tabular}{ l | p{0.7\textwidth} }
 		\textbf{Test case ID} & I4.2 \\ \hline
-		\textbf{Modules interactions} & TaxiDriver $\implies$ Queue Manager \\ \hline
+		\textbf{Modules interactions} & TaxiDriver $\implies$ AccountManager \\ \hline
 		\textbf{Drivers} &  \hyperref[D7]{D7} = TaxiDriver \\ \hline
 		\textbf{Input} &  The TaxiDriver driver tries to login and logout with real and fake accounts. \\ \hline
 		\textbf{Required output} & The AccountManager should provide valid sessions in the login phase and destroy sessions during the logout phase.
