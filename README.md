@@ -12,7 +12,7 @@ The repository is divided in subfolders, each one contains the work done for the
 2. [Design Document](./Delivery/Assignment 2 - DD/DD.pdf)
 3. [Code Inspection](./Delivery/Assignment 3 - CI/CodeInspection.pdf)
 4. [Integration Testing Plan](./Delivery/Assignment 4 - ITPD/ITPD.pdf)
-5. [Project Plan](./Delivery/Assignment 5 - Project Plan)
+5. [Project Plan](./Delivery/Assignment 5 - Project Plan/PP.pdf)
 
 #Working directory
 [Work](./Work): working directory
