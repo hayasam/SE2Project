@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2016-01-01" view-index="0" gantt-divider-location="362" resource-divider-location="300" version="2.7.1" locale="en_US">
+<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2015-09-01" view-index="0" gantt-divider-location="362" resource-divider-location="400" version="2.7.1" locale="en_US">
     <description/>
     <view zooming-state="default:8" id="gantt-chart">
         <field id="tpd3" name="Name" width="56" order="0"/>
@@ -8,8 +8,8 @@
         <option id="taskLabelLeft" value="name"/>
     </view>
     <view id="resource-table">
-        <field id="0" name="Name" width="50" order="0"/>
-        <field id="1" name="Default role" width="49" order="1"/>
+        <field id="0" name="Name" width="62" order="0"/>
+        <field id="1" name="Default role" width="37" order="1"/>
     </view>
     <!-- -->
     <calendars>
@@ -55,6 +55,7 @@
         </task>
         <task id="9" name="ITPD" color="#8cb6ce" meeting="false" start="2016-01-07" duration="10" complete="0" expand="true"/>
         <task id="10" name="PROJECT PLAN" meeting="false" start="2016-01-21" duration="9" complete="0" expand="true">
+            <depend id="12" type="2" difference="3" hardness="Strong"/>
             <task id="14" name="FP" color="#8cb6ce" meeting="false" start="2016-01-21" duration="3" complete="0" expand="true">
                 <depend id="15" type="2" difference="0" hardness="Strong"/>
             </task>
@@ -65,15 +66,16 @@
             <task id="17" name="Resources Allocation" color="#8cb6ce" meeting="false" start="2016-01-28" duration="2" complete="0" expand="true"/>
             <task id="18" name="Risk Management" color="#8cb6ce" meeting="false" start="2016-02-01" duration="2" complete="0" expand="true"/>
         </task>
-        <task id="11" name="PRESENTATION" color="#8cb6ce" meeting="false" start="2016-02-03" duration="19" complete="0" expand="true"/>
-        <task id="12" name="DEVELOPMENT" color="#8cb6ce" meeting="false" start="2016-03-01" duration="66" complete="0" expand="true">
+        <task id="12" name="DEVELOPMENT" color="#8cb6ce" meeting="false" start="2016-02-08" duration="20" complete="0" expand="true">
             <depend id="13" type="2" difference="0" hardness="Strong"/>
+            <task id="39" name="Backend" color="#8cb6ce" meeting="false" start="2016-02-08" duration="10" complete="0" expand="true"/>
+            <task id="40" name="Frontend" color="#8cb6ce" meeting="false" start="2016-02-22" duration="10" complete="0" expand="true"/>
         </task>
-        <task id="13" name="TESTING" color="#8cb6ce" meeting="false" start="2016-06-01" duration="13" complete="0" expand="true">
-            <task id="19" name="Unit Testing" color="#8cb6ce" meeting="false" start="2016-06-01" duration="6" complete="0" expand="true">
+        <task id="13" name="TESTING" color="#8cb6ce" meeting="false" start="2016-03-07" duration="14" complete="0" expand="true">
+            <task id="19" name="Unit Testing" color="#8cb6ce" meeting="false" start="2016-03-07" duration="7" complete="0" expand="true">
                 <depend id="20" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="20" name="Integration Testing" color="#8cb6ce" meeting="false" start="2016-06-09" duration="7" complete="0" expand="true"/>
+            <task id="20" name="Integration Testing" color="#8cb6ce" meeting="false" start="2016-03-16" duration="7" complete="0" expand="true"/>
         </task>
     </tasks>
     <resources>
@@ -91,6 +93,7 @@
         <allocation task-id="15" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
         <allocation task-id="19" resource-id="0" function="Default:1" responsible="false" load="100.0"/>
         <allocation task-id="20" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="12" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
         <allocation task-id="1" resource-id="1" function="Default:1" responsible="false" load="100.0"/>
         <allocation task-id="2" resource-id="1" function="Default:1" responsible="false" load="80.0"/>
         <allocation task-id="3" resource-id="1" function="Default:1" responsible="false" load="100.0"/>
@@ -101,6 +104,7 @@
         <allocation task-id="18" resource-id="1" function="Default:1" responsible="true" load="100.0"/>
         <allocation task-id="19" resource-id="1" function="Default:1" responsible="true" load="100.0"/>
         <allocation task-id="20" resource-id="1" function="Default:1" responsible="false" load="100.0"/>
+        <allocation task-id="12" resource-id="1" function="Default:1" responsible="false" load="100.0"/>
     </allocations>
     <vacations/>
     <taskdisplaycolumns>
