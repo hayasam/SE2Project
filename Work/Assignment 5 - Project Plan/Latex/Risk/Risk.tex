@@ -1,10 +1,23 @@
 \chapter{Risk analysis}
-\begin{table}[H]
-\centering
-\begin{tabular}{c | p{0.5\textwidth} | c | c}
+\section{Risk identification}
+
+\begin{longtable}{c | p{0.5\textwidth} | c | c}
 \textbf{Risk ID} & \textbf{Description} & \textbf{Probability} & \textbf{Impact} \\ \hline
-RK1 & \textit{Marketing of solution}: the main problem of this project is that its features can be easily replicated by some open source mobile application which could stole us the profit of the selling of our product & $<$ 60\% & Serious \\ \hline
+RK0 & \textit{Marketing of solution}: the main problem of this project is that its features can be easily replicated by some open source mobile application which could stole us the profit of the selling of our product & $<$ 60\% & Serious \\ \hline
 RK1 & \textit{Lack of personnel}: Unless we decide to hire new developers, our organization will not be able to finish the project by the requested deadline & $>60 \%$ & Catastrophic \\ \hline
-RK2 & \textit{Illness of one or more of the developers} & $< 40 \%$ & Serious
-\end{tabular}
-\end{table}
+RK2 & \textit{Illness of one or more of the developers} & $< 40 \%$ & Serious \\ \hline
+RK3 & \textit{Lack of experience of the personnel}: this is due to the possibility that some of the developers is not familiar with the JEE environment of the Java programming language & $<30\%$ & Medium \\ \hline
+RK4 & \textit{Client's abandonment of the project}: there is the possibility that the client decides to stop the project because of his lack of funds & $<10 \%$ & Catastrophic \\ \hline
+RK5 & \textit{Lack of budget}: our company may lose to much money in the development and testing of this application & $>30 \%$ & Serious \\ \hline
+RK6 & \textit{Client's requirements change}: our company is very small and can manage small adjustment of the requirements, but it cannot afford to restructure all the system and, at the same time, fit into the project schedule & $>20\%$ & Serious \\ \hline
+RK7 & \textit{Client's need of a cheap solution}: our clients need a working solution which, at the same time, is the cheapest one. This could cause a failure in the system and a decrease of reliability and quality of the application & $>70\%$ & Small \\ \hline
+RK8 & \textit{Database crash}: during the normal service of the database to our application, it could crash & $<20\%$ & Small\\
+\caption{Risks of the project}
+\end{longtable}
+
+\section{Strategies}
+\begin{longtable}{p{0.2\textwidth} | p{0.7\textwidth}}
+\textbf{Managed risks} & \textbf{Strategy description} \\ \hline
+RK1, RK2, RK3 & \textit{Staff formation and hiring}: in the first phases of the project, and in particular during the planning, hire one/two new developers having a previous background with the Java Programming language and JEE environment. Train them with the support of the expert team members for 15 days. Manage the resource allocation appropriately in order to have full coverage of the development phase also in case of illness of one of the developers. \\ \hline
+\caption{Strategy for handling the risks}
+\end{longtable}
